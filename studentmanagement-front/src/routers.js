@@ -8,6 +8,10 @@ import {LoginForm} from "./form/Login";
 import Init from "./Init";
 import Form from './form/Form'
 import {RegisterForm} from "./form/Register";
+import Student from "./student/Student";
+import Teacher from "./teacher/Teacher";
+import StudentCarousel from "./student/StudentCarousel";
+import TeacherCarousel from "./teacher/TeacherCarousel";
 
 export const routers=(
     <Router history={browserHistory}>
@@ -21,5 +25,13 @@ export const routers=(
                 <Route path="login" components={LoginForm}/>
                 <Route path="register" components={RegisterForm}/>
             </Route>
+
+            <Route path="student/:id" components={Student}>
+                <IndexRoute components={StudentCarousel}/>
+            </Route>
+            <Route path="teacher/:id" components={Teacher}>
+                <IndexRoute components={TeacherCarousel}/>
+            </Route>
+
         </Route>
     </Router>);

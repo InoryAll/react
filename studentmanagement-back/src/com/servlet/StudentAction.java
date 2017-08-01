@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.entity.Student;
 import com.service.StudentLoginService;
+import com.service.StudentRegisterService;
 
 public class StudentAction extends HttpServlet{
 	@Override
@@ -25,17 +27,37 @@ public class StudentAction extends HttpServlet{
 		if(action==null){
 			return;
 		}
+		String message;
 		switch(action){
 			case "login":
 				String stuId=request.getParameter("id");
 				String stuPassword=request.getParameter("password");
 				StudentLoginService stuLoginService=new StudentLoginService();
 				boolean canLogin = stuLoginService.validate(stuId, stuPassword);
-				String message=stuLoginService.returnMessage(canLogin);
+				message=stuLoginService.returnMessage(canLogin);
 				out.write(message);
 				break;
 			case "register":
-				
+				Student stu=new Student();
+				stu.setStuId(request.getParameter("id"));
+				stu.setStuPassword(request.getParameter("password"));
+				stu.setStuName(request.getParameter("name"));
+				stu.setStuSex(request.getParameter("sex"));
+				stu.setStuNation(request.getParameter("nation"));
+				stu.setStuAge(Integer.parseInt(request.getParameter("age")));
+				stu.setStuDepartment(request.getParameter("department"));
+				stu.setStuClass(request.getParameter("class"));
+				stu.setStuTel(request.getParameter("tel"));
+				StudentRegisterService stuRegisterService=new StudentRegisterService();
+				boolean isExist=stuRegisterService.validate(stu);
+				boolean isAdded=stuRegisterService.addStudent(isExist, stu);
+				message=stuRegisterService.returnMessage(isExist, isAdded);
+				out.write(message);
+				break;
+			case "searchInfo":
+				break;
+			case "updateInfo":
+				break;
 		}
 	}
 	@Override

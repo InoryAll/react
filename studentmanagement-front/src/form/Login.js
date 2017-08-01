@@ -42,15 +42,14 @@ class Login extends  React.Component{
                                         content: data.message,
                                     });
                                 }
-                                else
-                                {
+                                else {
                                     const modal=Modal.success({
                                         title: '成功',
                                         content: data.message,
                                     });
                                     setTimeout(()=>{
                                         modal.destroy();
-                                        /*学生登录成功，跳转*/
+                                        browserHistory.push('/student/'+values.id);
                                     },1000);
                                 }
                             }).catch((e)=>{
@@ -86,7 +85,7 @@ class Login extends  React.Component{
                                 });
                                 setTimeout(()=>{
                                     modal.destroy();
-                                    /*教师登录成功，跳转*/
+                                    browserHistory.push('/teacher/'+values.id);
                                 },1000);
                             }
                         }).catch((e)=>{

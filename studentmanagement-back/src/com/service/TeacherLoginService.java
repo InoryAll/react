@@ -3,6 +3,7 @@ package com.service;
 import com.dao.TeacherDao;
 import com.entity.Teacher;
 
+/*处理教师登录*/
 public class TeacherLoginService {
 	public boolean validate(String teaId,String teaPassword){
 		TeacherDao teaDao=new TeacherDao();

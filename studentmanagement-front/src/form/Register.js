@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete , Radio } from 'antd';
-import {Link} from 'react-router';
+import { Form, Modal, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete , Radio } from 'antd';
+import {Link,browserHistory} from 'react-router';
+import 'antd/dist/antd.css'
 import 'whatwg-fetch/fetch';
 import 'isomorphic-fetch';
 
@@ -37,7 +38,22 @@ class Register extends React.Component{
                        return response.json();
                    }
                }).then((data) => {
-                   console.log(data);
+                   if (data.code==='0'){
+                        Modal.error({
+                            title: '失败',
+                            content: data.message,
+                        });
+                   }
+                   else{
+                        const modal=Modal.success({
+                            title: '成功',
+                            content: data.message,
+                        });
+                        setTimeout(()=>{
+                            modal.destroy();
+                            browserHistory.push('/user/login');
+                        },1000);
+                   }
                });
             }
         });
@@ -232,7 +248,7 @@ class Register extends React.Component{
                 <FormItem {...tailFormItemLayout}>
                     <Row>
                         <Col span={8}><Button type="primary" htmlType="submit">注册</Button></Col>
-                        <Col span={14} offset={2}><Button type="default" htmlType="button"><Link to="/user/login">返回登录</Link></Button></Col>
+                        <Col span={14} offset={2}><Link to="/user/login">返回登录</Link></Col>
                     </Row>
                 </FormItem>
             </Form>
