@@ -1,0 +1,32 @@
+/*
+*公用样式
+*/
+.title{
+    font-size: 24px;
+    color: #fbfbfb;
+}
+.card-container{
+    height: 100%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+.form-container{
+    background: #ebf8f2;
+}
+.form-header{
+    background: #0e77ca;
+}
+.form-padding{
+    padding: 5% 0;
+}
+
+ .login-form {
+     max-width: 300px;
+     margin: 0 auto;
+}
+ .login-form-forgot {
+     float: right;
+}
+ .login-form-button {
+     width: 100%;
+}
