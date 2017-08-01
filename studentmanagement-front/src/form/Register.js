@@ -1,32 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
+import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete , Radio} from 'antd';
+import RadioGroup from "antd/es/radio/group";
+import {Link} from 'react-router'
+
 const FormItem = Form.Item;
 const Option = Select.Option;
 const AutoCompleteOption = AutoComplete.Option;
 
-const residences = [{
-    value: 'zhejiang',
-    label: 'Zhejiang',
-    children: [{
-        value: 'hangzhou',
-        label: 'Hangzhou',
-        children: [{
-            value: 'xihu',
-            label: 'West Lake',
-        }],
-    }],
+const departments = [{
+    value: '软件工程',
+    label: '软件工程'
 }, {
-    value: 'jiangsu',
-    label: 'Jiangsu',
-    children: [{
-        value: 'nanjing',
-        label: 'Nanjing',
-        children: [{
-            value: 'zhonghuamen',
-            label: 'Zhong Hua Men',
-        }],
-    }],
+    value: '计算机科学与技术',
+    label: '计算机科学与技术'
+},{
+    value: '自动化',
+    label: '自动化'
 }];
 
 
@@ -47,10 +37,21 @@ class Register extends React.Component{
         const value = e.target.value;
         this.setState({ confirmDirty: this.state.confirmDirty || !!value });
     };
+
+    checkId=(rule,value,callback) => {
+        const reg=/^\d{8}$/;
+        if (value && !reg.test(value) && value.length!==0){
+            callback('用户名应为8位纯数字!');
+        }
+        else
+        {
+            callback();
+        }
+    };
     checkPassword = (rule, value, callback) => {
         const form = this.props.form;
         if (value && value !== form.getFieldValue('password')) {
-            callback('Two passwords that you enter is inconsistent!');
+            callback('两次输入的密码不一致!');
         } else {
             callback();
         }
@@ -99,14 +100,6 @@ class Register extends React.Component{
                 },
             },
         };
-        const prefixSelector = getFieldDecorator('prefix', {
-            initialValue: '86',
-        })(
-            <Select style={{ width: 60 }}>
-                <Option value="86">+86</Option>
-                <Option value="87">+87</Option>
-            </Select>
-        );
 
         const websiteOptions = autoCompleteResult.map(website => (
             <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
@@ -119,14 +112,14 @@ class Register extends React.Component{
                     label="用户名:"
                     hasFeedback
                 >
-                    {getFieldDecorator('email', {
-                        rules: [{
-                            type: 'email', message: 'The input is not valid E-mail!',
-                        }, {
-                            required: true, message: 'Please input your E-mail!',
+                    {getFieldDecorator('id', {
+                        rules: [ {
+                            required: true, message: '请输入用户名!'
+                        },{
+                            validator:this.checkId
                         }],
                     })(
-                        <Input />
+                        <Input placeholder="用户名(8位纯数字学号)"/>
                     )}
                 </FormItem>
                 <FormItem
@@ -136,7 +129,7 @@ class Register extends React.Component{
                 >
                     {getFieldDecorator('password', {
                         rules: [{
-                            required: true, message: 'Please input your password!',
+                            required: true, message: '请输入密码!'
                         }, {
                             validator: this.checkConfirm,
                         }],
@@ -151,7 +144,7 @@ class Register extends React.Component{
                 >
                     {getFieldDecorator('confirm', {
                         rules: [{
-                            required: true, message: 'Please confirm your password!',
+                            required: true, message: '请再次输入密码!'
                         }, {
                             validator: this.checkPassword,
                         }],
@@ -161,86 +154,93 @@ class Register extends React.Component{
                 </FormItem>
                 <FormItem
                     {...formItemLayout}
-                    label={(
-                        <span>
-              姓名:&nbsp;
-                            <Tooltip title="What do you want other to call you?">
-                <Icon type="question-circle-o" />
-              </Tooltip>
-            </span>
-                    )}
+                    label="姓名:"
                     hasFeedback
                 >
-                    {getFieldDecorator('nickname', {
-                        rules: [{ required: true, message: 'Please input your nickname!', whitespace: true }],
+                    {getFieldDecorator('name', {
+                        rules: [{ required: true, message: '请输入你的姓名!' }]
                     })(
                         <Input />
                     )}
                 </FormItem>
                 <FormItem
                     {...formItemLayout}
-                    label="居住地:"
+                    label="性别">
+                    {getFieldDecorator('sex',{
+                            initialValue:'男',
+                            rules:[{required:true}]
+                        })(
+                            <RadioGroup>
+                                <Radio value="男">男</Radio>
+                                <Radio value="女">女</Radio>
+                            </RadioGroup>
+                        )}
+                </FormItem>
+                <FormItem
+                    {...formItemLayout}
+                    label="民族"
+                    hasFeedback
                 >
-                    {getFieldDecorator('residence', {
-                        initialValue: ['zhejiang', 'hangzhou', 'xihu'],
-                        rules: [{ type: 'array', required: true, message: 'Please select your habitual residence!' }],
+                    {getFieldDecorator('nation',{
+                            rules:[{ required : true , message : '请输入民族!' }]
+                        })(
+                            <Input />
+                        )}
+                </FormItem>
+                <FormItem
+                    {...formItemLayout}
+                    label="年龄:"
+                    hasFeedback
+                >
+                    {getFieldDecorator('age',{
+                        rules:[{ required : true , message : '请输入你的年龄!'}]
                     })(
-                        <Cascader options={residences} />
+                        <Input />
+                    )}
+                </FormItem>
+                <FormItem
+                    {...formItemLayout}
+                    label="专业:"
+                >
+                    {getFieldDecorator('department', {
+                        rules: [ {required : true, message: '请选择你的专业!'}]
+                    })(
+                        <Select placeholder="选择专业">
+                            <Option value="软件工程">软件工程</Option>
+                            <Option value="通信工程">通信工程</Option>
+                            <Option value="物联网">物联网</Option>
+                            <Option value="自动化">自动化</Option>
+                            <Option value="计算机科学与技术">计算机科学与技术</Option>
+                        </Select>
+                    )}
+                </FormItem>
+                <FormItem
+                    {...formItemLayout}
+                    label="班级:"
+                    hasFeedback
+                >
+                    {getFieldDecorator('class',{
+                        rules:[{ required : true , message : '请输入你的班级!'}]
+                    })(
+                        <Input />
                     )}
                 </FormItem>
                 <FormItem
                     {...formItemLayout}
                     label="手机号码:"
+                    hasFeedback
                 >
-                    {getFieldDecorator('phone', {
-                        rules: [{ required: true, message: 'Please input your phone number!' }],
+                    {getFieldDecorator('tel', {
+                        rules: [{ required: true, message: '请输入你的手机号码!' }],
                     })(
-                        <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
-                    )}
-                </FormItem>
-                <FormItem
-                    {...formItemLayout}
-                    label="邮箱:"
-                >
-                    {getFieldDecorator('website', {
-                        rules: [{ required: true, message: 'Please input website!' }],
-                    })(
-                        <AutoComplete
-                            dataSource={websiteOptions}
-                            onChange={this.handleWebsiteChange}
-                            placeholder="website"
-                        >
-                            <Input />
-                        </AutoComplete>
-                    )}
-                </FormItem>
-                <FormItem
-                    {...formItemLayout}
-                    label="验证码:"
-                    extra="We must make sure that your are a human."
-                >
-                    <Row gutter={8}>
-                        <Col span={12}>
-                            {getFieldDecorator('captcha', {
-                                rules: [{ required: true, message: 'Please input the captcha you got!' }],
-                            })(
-                                <Input size="large" />
-                            )}
-                        </Col>
-                        <Col span={12}>
-                            <Button size="large">获取验证码</Button>
-                        </Col>
-                    </Row>
-                </FormItem>
-                <FormItem {...tailFormItemLayout} style={{ marginBottom: 8 }}>
-                    {getFieldDecorator('agreement', {
-                        valuePropName: 'checked',
-                    })(
-                        <Checkbox>I have read the <a href="">agreement</a></Checkbox>
+                        <Input />
                     )}
                 </FormItem>
                 <FormItem {...tailFormItemLayout}>
-                    <Button type="primary" htmlType="submit">注册</Button>
+                    <Row>
+                        <Col span={8}><Button type="primary" htmlType="submit">注册</Button></Col>
+                        <Col span={14} offset={2}><Button type="default" htmlType="button"><Link to="/user/login">返回登录</Link></Button></Col>
+                    </Row>
                 </FormItem>
             </Form>
         );
