@@ -1,24 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete , Radio} from 'antd';
-import RadioGroup from "antd/es/radio/group";
-import {Link} from 'react-router'
+import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete , Radio } from 'antd';
+import {Link} from 'react-router';
+import 'whatwg-fetch/fetch';
+import 'isomorphic-fetch';
 
 const FormItem = Form.Item;
+const RadioGroup = Radio.Group;
 const Option = Select.Option;
-const AutoCompleteOption = AutoComplete.Option;
-
-const departments = [{
-    value: '软件工程',
-    label: '软件工程'
-}, {
-    value: '计算机科学与技术',
-    label: '计算机科学与技术'
-},{
-    value: '自动化',
-    label: '自动化'
-}];
-
 
 class Register extends React.Component{
     state = {
@@ -30,6 +19,26 @@ class Register extends React.Component{
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
+               fetch('http://localhost:8080/studentmanagement/StudentAction',{
+                    method:'POST',
+                    mode:'cors',
+                    headers:{
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body:'id='+values.id+'&password='+values.password
+                            +'&name='+values.name+'&sex='+values.sex
+                            +'&nation='+values.nation+'&age='+values.age
+                            +'&department='+values.department+'&class='+values.class
+                            +'&tel='+values.tel+'&action=register'
+                }).then((response) => {
+                   console.log(response);
+                   if (response.ok){
+                       return response.json();
+                   }
+               }).then((data) => {
+                   console.log(data);
+               });
             }
         });
     };
@@ -63,17 +72,6 @@ class Register extends React.Component{
         }
         callback();
     };
-
-    handleWebsiteChange = (value) => {
-        let autoCompleteResult;
-        if (!value) {
-            autoCompleteResult = [];
-        } else {
-            autoCompleteResult = ['.com', '.org', '.net'].map(domain => `${value}${domain}`);
-        }
-        this.setState({ autoCompleteResult });
-    };
-
     render() {
         const { getFieldDecorator } = this.props.form;
         const { autoCompleteResult } = this.state;
@@ -100,11 +98,6 @@ class Register extends React.Component{
                 },
             },
         };
-
-        const websiteOptions = autoCompleteResult.map(website => (
-            <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
-        ));
-
         return (
             <Form onSubmit={this.handleSubmit}>
                 <FormItem

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.service.teacherLoginService;
+import com.service.TeacherLoginService;
 
 public class TeacherAction extends HttpServlet{
 	@Override
@@ -28,7 +28,7 @@ public class TeacherAction extends HttpServlet{
 			case "login":
 				String teaId=request.getParameter("id");
 				String teaPassword=request.getParameter("password");
-				teacherLoginService teaLoginService=new teacherLoginService();
+				TeacherLoginService teaLoginService=new TeacherLoginService();
 				boolean canLogin=teaLoginService.validate(teaId, teaPassword);
 				String message=teaLoginService.returnMessage(canLogin);
 				out.write(message);

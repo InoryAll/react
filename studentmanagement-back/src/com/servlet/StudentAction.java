@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.service.studentLoginService;
+import com.service.StudentLoginService;
 
 public class StudentAction extends HttpServlet{
 	@Override
@@ -29,11 +29,13 @@ public class StudentAction extends HttpServlet{
 			case "login":
 				String stuId=request.getParameter("id");
 				String stuPassword=request.getParameter("password");
-				studentLoginService stuLoginService=new studentLoginService();
+				StudentLoginService stuLoginService=new StudentLoginService();
 				boolean canLogin = stuLoginService.validate(stuId, stuPassword);
 				String message=stuLoginService.returnMessage(canLogin);
 				out.write(message);
 				break;
+			case "register":
+				
 		}
 	}
 	@Override
