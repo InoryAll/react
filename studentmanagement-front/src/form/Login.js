@@ -21,7 +21,6 @@ class Login extends  React.Component{
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                    console.log('Received values of form: ', values);
                     if (values.role==='student'){
                             fetch('http://localhost:8080/studentmanagement/StudentAction', {
                                 method: 'POST',
@@ -32,7 +31,6 @@ class Login extends  React.Component{
                                 },
                                 body: 'id='+values.id+"&password="+values.password+"&action=login"
                             }).then((response) => {
-                                console.log(response);
                                 if (response.ok){
                                     return response.json();
                                 }
@@ -68,7 +66,6 @@ class Login extends  React.Component{
                             },
                             body: 'id='+values.id+"&password="+values.password+"&action=login"
                         }).then((response) => {
-                            console.log(response);
                             if (response.ok){
                                 return response.json();
                             }

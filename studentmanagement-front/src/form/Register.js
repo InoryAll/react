@@ -19,7 +19,6 @@ class Register extends React.Component{
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
                fetch('http://localhost:8080/studentmanagement/StudentAction',{
                     method:'POST',
                     mode:'cors',
@@ -33,7 +32,6 @@ class Register extends React.Component{
                             +'&department='+values.department+'&class='+values.class
                             +'&tel='+values.tel+'&action=register'
                 }).then((response) => {
-                   console.log(response);
                    if (response.ok){
                        return response.json();
                    }

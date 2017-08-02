@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {
     Form, Select, InputNumber, Switch, Radio,
-    Slider, Button, Upload, Icon,Card
+    Slider, Button, Upload, Icon,Card,Modal
 } from 'antd';
 import 'isomorphic-fetch';
 import 'whatwg-fetch';
@@ -36,15 +36,21 @@ class StudentInfoShow extends React.Component{
             },
             body:'id='+getCookie('username')+'&action=searchInfo'
         }).then((response) => {
-            console.log(response);
             if (response.ok){
                 return response.json();
             }
         }).then((data) => {
-            this.setState({
-                data:data.info
-            });
-            console.log(this.state.data);
+            if (data.code==='0'){
+                Modal.error({
+                    title: '失败',
+                    content: '查询个人信息失败，请重试!'
+                });
+            }
+            else {
+                this.setState({
+                    data:data.info
+                });
+            }
         }).catch((e) => {
             console.log(e.message);
         });

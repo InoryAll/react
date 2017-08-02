@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'antd/dist/antd.css';
-import './Student.css';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import {Link} from 'react-router';
+import './Student.css';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -25,7 +24,7 @@ export default class Student extends React.Component{
                         >
                             <SubMenu key="sub1" title={<span><Icon type="user" />个人信息管理</span>}>
                                 <Menu.Item key="1"><Link to="/student/info/search">查看个人信息</Link></Menu.Item>
-                                <Menu.Item key="2"><Link to="">修改个人信息</Link></Menu.Item>
+                                <Menu.Item key="2"><Link to="/student/info/update">修改个人信息</Link></Menu.Item>
                             </SubMenu>
                             <SubMenu key="sub2" title={<span><Icon type="book" />个人课程管理</span>}>
                                 <Menu.Item key="3">查看已选课程</Menu.Item>

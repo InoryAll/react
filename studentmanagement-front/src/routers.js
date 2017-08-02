@@ -13,6 +13,7 @@ import Teacher from "./teacher/Teacher";
 import StudentCarousel from "./student/StudentCarousel";
 import TeacherCarousel from "./teacher/TeacherCarousel";
 import {StudentInfoShowForm} from "./student/StudentInfoShow";
+import {StudentInfoUpdateForm} from "./student/StudentInfoUpdate";
 
 export const routers=(
     <Router history={browserHistory}>
@@ -30,6 +31,7 @@ export const routers=(
             <Route path="student(/:id)" components={Student}>
                 <IndexRoute components={StudentCarousel}/>
                 <Route path="/student/info/search" components={StudentInfoShowForm}/>
+                <Route path="/student/info/update" components={StudentInfoUpdateForm}/>
             </Route>
             <Route path="teacher(/:id)" components={Teacher}>
                 <IndexRoute components={TeacherCarousel}/>

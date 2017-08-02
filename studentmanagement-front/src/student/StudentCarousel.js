@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Carousel,Row,Col } from 'antd';
 
-
 export default class StudentCarousel extends React.Component{
     render(){
         return (
