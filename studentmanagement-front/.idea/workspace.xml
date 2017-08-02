@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="814d5fb3-8ccb-4c5b-b0b8-9b34c7fa0412" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/teacher/TeacherInfoShow.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/teacher/TeacherInfoUpdate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../studentmanagement-back/WebRoot/WEB-INF/classes/com/servlet/StudentAction.class" afterPath="$PROJECT_DIR$/../studentmanagement-back/WebRoot/WEB-INF/classes/com/servlet/StudentAction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../studentmanagement-back/WebRoot/WEB-INF/classes/com/servlet/TeacherAction.class" afterPath="$PROJECT_DIR$/../studentmanagement-back/WebRoot/WEB-INF/classes/com/servlet/TeacherAction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../studentmanagement-back/WebRoot/index.jsp" afterPath="$PROJECT_DIR$/../studentmanagement-back/WebRoot/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../studentmanagement-back/src/com/service/StudentInfoService.java" afterPath="$PROJECT_DIR$/../studentmanagement-back/src/com/service/StudentInfoService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../studentmanagement-back/src/com/servlet/StudentAction.java" afterPath="$PROJECT_DIR$/../studentmanagement-back/src/com/servlet/StudentAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../studentmanagement-back/src/com/servlet/TeacherAction.java" afterPath="$PROJECT_DIR$/../studentmanagement-back/src/com/servlet/TeacherAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.css" afterPath="$PROJECT_DIR$/src/index.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routers.js" afterPath="$PROJECT_DIR$/src/routers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/student/Student.css" afterPath="$PROJECT_DIR$/src/student/Student.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/student/Student.js" afterPath="$PROJECT_DIR$/src/student/Student.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/teacher/Teacher.css" afterPath="$PROJECT_DIR$/src/teacher/Teacher.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/teacher/Teacher.js" afterPath="$PROJECT_DIR$/src/teacher/Teacher.js" />
-    </list>
+    <list default="true" id="814d5fb3-8ccb-4c5b-b0b8-9b34c7fa0412" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -219,7 +203,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="14" />
     <option name="y" value="103" />
     <option name="width" value="1721" />
@@ -351,7 +335,7 @@
       <workItem from="1501461682818" duration="4929000" />
       <workItem from="1501547009241" duration="6506000" />
       <workItem from="1501555206299" duration="19930000" />
-      <workItem from="1501634549070" duration="28818000" />
+      <workItem from="1501634549070" duration="28905000" />
     </task>
     <task id="LOCAL-00001" summary="do...">
       <created>1501560749299</created>
@@ -378,7 +362,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80872000" />
+    <option name="totallyTimeSpent" value="80959000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -390,10 +374,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="14" y="103" width="1721" height="997" extended-state="1" />
-    <editor active="true" />
+    <frame x="14" y="103" width="1721" height="997" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21925133" sideWeight="0.6576577" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21925133" sideWeight="0.6576577" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890365" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
