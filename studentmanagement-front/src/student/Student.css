@@ -25,20 +25,23 @@
 .content-container{
     width: calc(100% - 300px);
     padding: 24px;
-    height: auto;
+    height: 100% !important;
 }
 .content{
     width: 100%;
     background: #fff;
     padding: 24px;
     margin: 0;
-    height: 100%;
+    height: 100% !important;
+    position: relative;
+
 }
 
 /*轮播部分*/
 .carousel-container{
+    position: relative;
+    height: 800px;
     width: 100%;
-    height: 100%;
 }
 .ant-carousel{
     width: 100%;
@@ -71,12 +74,14 @@
 
 /*查看个人信息部分*/
 .search-info-form{
-    height: auto;
+    height: 100% !important;
     position: relative;
 }
 .search-info-form-container{
     position: relative;
-    height: 100%;
+    display: inline-block;
+    width: 100%;
+    height: 100% !important;
 }
 .ant-card-body{
     height: 100%;

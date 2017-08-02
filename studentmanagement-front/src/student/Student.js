@@ -16,7 +16,7 @@ export default class Student extends React.Component{
                         学生管理系统
                     </div>
                 </Header>
-                <Layout>
+                <Layout className="layout-box">
                     <Sider className="slider">
                         <Menu
                             mode="inline"

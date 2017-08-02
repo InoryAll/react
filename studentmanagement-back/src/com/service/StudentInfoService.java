@@ -35,9 +35,9 @@ public class StudentInfoService {
 		StudentDao stuDao=new StudentDao();
 		return stuDao.updateStudent(stu);
 	}
-	public String updateReturnMessage(boolean isUpdated){
+	public String updateReturnMessage(boolean isUpdated,Student stu){
 		if(isUpdated){
-			return "{\"code\":\"1\",\"message\":\"个人信息修改成功!\"}";
+			return getSearchInfo(stu);
 		}
 		else{
 			return "{\"code\":\"0\",\"messagae\":\"个人信息修改失败!\"}";

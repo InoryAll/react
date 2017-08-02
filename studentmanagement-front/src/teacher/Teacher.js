@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 import './Teacher.css';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import {Link} from 'react-router';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -25,7 +26,7 @@ export default class Teacher extends React.Component{
                             className="menu"
                         >
                             <SubMenu key="sub1" title={<span><Icon type="user" />个人信息管理</span>}>
-                                <Menu.Item key="1">查看个人信息</Menu.Item>
+                                <Menu.Item key="1"><Link to="/teacher/info/search">查看个人信息</Link></Menu.Item>
                                 <Menu.Item key="2">修改个人信息</Menu.Item>
                             </SubMenu>
                             <SubMenu key="sub2" title={<span><Icon type="book" />教师课程管理</span>}>

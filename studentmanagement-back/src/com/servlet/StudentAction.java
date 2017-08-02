@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.entity.Student;
+import com.service.StudentInfoService;
 import com.service.StudentLoginService;
 import com.service.StudentRegisterService;
 
@@ -28,9 +29,11 @@ public class StudentAction extends HttpServlet{
 			return;
 		}
 		String message;
+		Student stu=new Student();
+		String stuId;
 		switch(action){
 			case "login":
-				String stuId=request.getParameter("id");
+				stuId=request.getParameter("id");
 				String stuPassword=request.getParameter("password");
 				StudentLoginService stuLoginService=new StudentLoginService();
 				boolean canLogin = stuLoginService.validate(stuId, stuPassword);
@@ -38,7 +41,6 @@ public class StudentAction extends HttpServlet{
 				out.write(message);
 				break;
 			case "register":
-				Student stu=new Student();
 				stu.setStuId(request.getParameter("id"));
 				stu.setStuPassword(request.getParameter("password"));
 				stu.setStuName(request.getParameter("name"));
@@ -55,8 +57,26 @@ public class StudentAction extends HttpServlet{
 				out.write(message);
 				break;
 			case "searchInfo":
+				stuId=request.getParameter("id");
+				StudentInfoService stuSearchInfoService=new StudentInfoService();
+				stu=stuSearchInfoService.getStudentById(stuId);
+				message=stuSearchInfoService.getSearchInfo(stu);
+				out.write(message);
 				break;
 			case "updateInfo":
+				StudentInfoService stuUpdateInfoService=new StudentInfoService();
+				stu.setStuId(request.getParameter("id"));
+				stu.setStuPassword(request.getParameter("password"));
+				stu.setStuName(request.getParameter("name"));
+				stu.setStuSex(request.getParameter("sex"));
+				stu.setStuNation(request.getParameter("nation"));
+				stu.setStuAge(Integer.parseInt(request.getParameter("age")));
+				stu.setStuDepartment(request.getParameter("department"));
+				stu.setStuClass(request.getParameter("class"));
+				stu.setStuTel(request.getParameter("tel"));
+				boolean isUpdated=stuUpdateInfoService.updateSearchInfo(stu);
+				message=stuUpdateInfoService.updateReturnMessage(isUpdated, stu);
+				out.write(message);
 				break;
 		}
 	}

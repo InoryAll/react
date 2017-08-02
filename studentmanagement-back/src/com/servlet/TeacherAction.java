@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.entity.Teacher;
+import com.service.TeacherInfoService;
 import com.service.TeacherLoginService;
 
 public class TeacherAction extends HttpServlet{
@@ -24,13 +26,37 @@ public class TeacherAction extends HttpServlet{
 		if(action==null){
 			return;
 		}
+		String message;
+		String teaId;
+		Teacher tea=new Teacher();
 		switch(action){
 			case "login":
-				String teaId=request.getParameter("id");
+				teaId=request.getParameter("id");
 				String teaPassword=request.getParameter("password");
 				TeacherLoginService teaLoginService=new TeacherLoginService();
 				boolean canLogin=teaLoginService.validate(teaId, teaPassword);
-				String message=teaLoginService.returnMessage(canLogin);
+				message=teaLoginService.returnMessage(canLogin);
+				out.write(message);
+				break;
+			case "searchInfo":
+				teaId=request.getParameter("id");
+				TeacherInfoService teaSearchInfoService=new TeacherInfoService();
+				tea=teaSearchInfoService.getTeacherById(teaId);
+				message=teaSearchInfoService.getSearchInfo(tea);
+				out.write(message);
+				break;
+			case "updateInfo":
+				TeacherInfoService teaUpdateInfoService=new TeacherInfoService();
+				tea.setTeaId(request.getParameter("id"));
+				tea.setTeaPassword(request.getParameter("password"));
+				tea.setTeaName(request.getParameter("name"));
+				tea.setTeaSex(request.getParameter("sex"));
+				tea.setTeaNation(request.getParameter("nation"));
+				tea.setTeaAge(Integer.parseInt(request.getParameter("age")));
+				tea.setTeaDepartment(request.getParameter("department"));
+				tea.setTeaTel(request.getParameter("tel"));
+				boolean isUpdated=teaUpdateInfoService.updateSearchInfo(tea);
+				message=teaUpdateInfoService.updateReturnMessage(isUpdated, tea);
 				out.write(message);
 				break;
 		}
