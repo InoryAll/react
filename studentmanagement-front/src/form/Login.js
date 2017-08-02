@@ -8,6 +8,7 @@ import 'isomorphic-fetch';
 import {polyfill} from 'es6-promise';
 import 'whatwg-fetch';
 import 'es6-promise/dist/es6-promise.min';
+import {setCookie,getCookie} from '../util';
 
 polyfill();
 
@@ -50,6 +51,7 @@ class Login extends  React.Component{
                                     setTimeout(()=>{
                                         modal.destroy();
                                         browserHistory.push('/student/'+values.id);
+                                        setCookie('username',values.id);
                                     },1000);
                                 }
                             }).catch((e)=>{
@@ -86,6 +88,7 @@ class Login extends  React.Component{
                                 setTimeout(()=>{
                                     modal.destroy();
                                     browserHistory.push('/teacher/'+values.id);
+                                    setCookie('username',values.id);
                                 },1000);
                             }
                         }).catch((e)=>{

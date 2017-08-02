@@ -25,13 +25,15 @@
 .content-container{
     width: calc(100% - 300px);
     padding: 24px;
+    height: auto;
 }
 .content{
     width: 100%;
     background: #fff;
     padding: 24px;
     margin: 0;
-    min-height: 280px;
+    height: 100%;
+    min-height: 648px;
 }
 
 /*轮播部分*/
@@ -45,15 +47,19 @@
 }
 .slick-slider {
     text-align: center;
-    height: 100%;
     background: #364d79;
     overflow: hidden;
+    height: 100%;
 }
 .slick-list,.slick-track,.slick-slide{
     height: 100%;
 }
 .slick-slide{
     position: relative;
+    height: 100%;
+}
+.ant-carousel .slick-slide{
+    height: 100%;
 }
 .ant-carousel .slick-slider h3 {
     position: absolute;
@@ -61,4 +67,20 @@
     top: calc(50% - 45px);
     width: 100%;
     font-size: 60px;
+    height: 90px;
+}
+
+/*查看个人信息部分*/
+.search-info-form{
+    height: 480px;
+    position: relative;
+    top: calc(50% - 240px);
+}
+.search-info-form-container{
+    position: relative;
+    height: 100%;
+    min-height: 600px;
+}
+.ant-card-body{
+    height: 100%;
 }

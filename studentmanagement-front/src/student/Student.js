@@ -24,7 +24,7 @@ export default class Student extends React.Component{
                             className="menu"
                         >
                             <SubMenu key="sub1" title={<span><Icon type="user" />个人信息管理</span>}>
-                                <Menu.Item key="1"><Link to="">查看个人信息</Link></Menu.Item>
+                                <Menu.Item key="1"><Link to="/student/info/search">查看个人信息</Link></Menu.Item>
                                 <Menu.Item key="2"><Link to="">修改个人信息</Link></Menu.Item>
                             </SubMenu>
                             <SubMenu key="sub2" title={<span><Icon type="book" />个人课程管理</span>}>
