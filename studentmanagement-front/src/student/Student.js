@@ -27,9 +27,9 @@ export default class Student extends React.Component{
                                 <Menu.Item key="2"><Link to="/student/info/update">修改个人信息</Link></Menu.Item>
                             </SubMenu>
                             <SubMenu key="sub2" title={<span><Icon type="book" />个人课程管理</span>}>
-                                <Menu.Item key="3">查看已选课程</Menu.Item>
-                                <Menu.Item key="4">选课</Menu.Item>
-                                <Menu.Item key="5">删除已选课程</Menu.Item>
+                                <Menu.Item key="3"><Link to="/student/course/search">查看已选课程</Link></Menu.Item>
+                                <Menu.Item key="4"><Link to="/student/course/select">选课</Link></Menu.Item>
+                                <Menu.Item key="5"><Link to="/student/course/delete">删除已选课程</Link></Menu.Item>
                             </SubMenu>
                             <SubMenu key="sub3" title={<span><Icon type="like-o" />教学质量评价</span>}>
                                 <Menu.Item key="6">查看已评价的课程</Menu.Item>

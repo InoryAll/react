@@ -86,3 +86,14 @@
 .ant-card-body{
     height: 100%;
 }
+
+/*条件搜索框部分*/
+.search-conditions{
+    padding: 10px 0;
+}
+.courseNameSelect{
+    width: 200px !important;
+}
+.teacherNameSelect{
+    width: 200px !important;
+}
