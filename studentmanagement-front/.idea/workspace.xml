@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="814d5fb3-8ccb-4c5b-b0b8-9b34c7fa0412" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/student/StudentCourseDelete.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/student/StudentCourseHeader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/student/StudentCourseJudge.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/student/StudentCourseJudgeSearch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/student/StudentCourseSearch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/student/StudentCourseSelect.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../studentmanagement-back/WebRoot/WEB-INF/classes/com/dao/CourseDao.class" afterPath="$PROJECT_DIR$/../studentmanagement-back/WebRoot/WEB-INF/classes/com/dao/CourseDao.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../studentmanagement-back/WebRoot/WEB-INF/classes/com/dao/StudentDao.class" afterPath="$PROJECT_DIR$/../studentmanagement-back/WebRoot/WEB-INF/classes/com/dao/StudentDao.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../studentmanagement-back/WebRoot/WEB-INF/classes/com/dao/TeacherDao.class" afterPath="$PROJECT_DIR$/../studentmanagement-back/WebRoot/WEB-INF/classes/com/dao/TeacherDao.class" />
@@ -17,11 +11,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../studentmanagement-back/src/com/dao/TeacherDao.java" afterPath="$PROJECT_DIR$/../studentmanagement-back/src/com/dao/TeacherDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../studentmanagement-back/src/com/servlet/StudentAction.java" afterPath="$PROJECT_DIR$/../studentmanagement-back/src/com/servlet/StudentAction.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routers.js" afterPath="$PROJECT_DIR$/src/routers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/student/Student.css" afterPath="$PROJECT_DIR$/src/student/Student.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/student/Student.js" afterPath="$PROJECT_DIR$/src/student/Student.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/teacher/Teacher.js" afterPath="$PROJECT_DIR$/src/teacher/Teacher.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/teacher/TeacherInfoUpdate.js" afterPath="$PROJECT_DIR$/src/teacher/TeacherInfoUpdate.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -363,7 +352,7 @@
       <workItem from="1501547009241" duration="6506000" />
       <workItem from="1501555206299" duration="19930000" />
       <workItem from="1501634549070" duration="28905000" />
-      <workItem from="1501720008950" duration="24649000" />
+      <workItem from="1501720008950" duration="24672000" />
     </task>
     <task id="LOCAL-00001" summary="do...">
       <created>1501560749299</created>
@@ -386,11 +375,18 @@
       <option name="project" value="LOCAL" />
       <updated>1501658821312</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="do...">
+      <created>1501753979164</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1501753979164</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105608000" />
+    <option name="totallyTimeSpent" value="105631000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
