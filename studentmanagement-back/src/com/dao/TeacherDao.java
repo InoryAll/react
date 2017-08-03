@@ -121,4 +121,37 @@ public class TeacherDao {
 		}
 		return false;
 	}
+	
+	/*获取所有教师*/
+	public ArrayList<Teacher> getAllTeachers(){
+		Connection conn=DBUtil.getConnection();
+		Statement stmt=null;
+		ResultSet rs=null;
+		ArrayList<Teacher> teachers=new ArrayList<Teacher>();
+		String sql="select * from teacher";
+		
+		try {
+			stmt=conn.createStatement();
+			rs=stmt.executeQuery(sql);
+			while(rs.next()){
+				Teacher teacher=new Teacher();
+				teacher.setTeaId(rs.getString("teaId"));
+				teacher.setTeaPassword(rs.getString("teaPassword"));
+				teacher.setTeaName(rs.getString("teaName"));
+				teacher.setTeaSex(rs.getString("teaSex"));
+				teacher.setTeaNation(rs.getString("teaNation"));
+				teacher.setTeaAge(rs.getInt("teaAge"));
+				teacher.setTeaDepartment(rs.getString("teaDepartment"));
+				teacher.setTeaTel(rs.getString("teaTel"));
+				teachers.add(teacher);
+			}
+			return teachers;
+		} catch (SQLException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}finally{
+			DBUtil.close(conn, stmt, rs);
+		}
+		return null;
+	}
 }

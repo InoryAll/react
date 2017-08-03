@@ -43,7 +43,50 @@ public class CourseDao {
 	}
 	
 	/*根据条件获取课程*/
-	public ArrayList<Course> getCourseByCondition(String condition){
+	public ArrayList<Course> getCourseByCondition(String courseName,String teaName){
+		Connection conn=DBUtil.getConnection();
+		Statement stmt=null;
+		ResultSet rs=null;
+		ArrayList<Course> courses=new ArrayList<Course>();
+		String sql="";
+		if(courseName.equals("undefined")&&teaName.equals("undefined")){
+			courses=getAllCourses();
+			return courses;
+		}
+		if(!courseName.equals("undefined")&&teaName.equals("undefined")){
+			sql="select * from course where courseName='"+courseName+"'";
+		}
+		if(courseName.equals("undefined")&&!teaName.equals("undefined")){
+			sql="select * from course,teacher,t_c where course.courseId=t_c.courseId "
+				+ "and teacher.teaId=t_c.teaId "
+				+ "and teaName='"+teaName+"'";
+		}
+		if(!courseName.equals("undefined")&&!teaName.equals("undefined")){
+			sql="select * from course,teacher,t_c where course.courseId=t_c.courseId "
+				+ "and teacher.teaId=t_c.teaId "
+				+ "and teaName='"+teaName+"' "
+				+ "and courseName='"+courseName+"'";
+		}
+		
+		try {
+			stmt=conn.createStatement();
+			rs=stmt.executeQuery(sql);
+			while(rs.next()){
+				Course course=new Course();
+				course.setCourseId(rs.getString("courseId"));
+				course.setCourseName(rs.getString("courseName"));
+				course.setCourseKind(rs.getString("courseKind"));
+				course.setCourseSchedule(rs.getInt("courseSchedule"));
+				course.setCourseCredits(rs.getInt("courseCredits"));
+				courses.add(course);
+			}
+			return courses;
+		} catch (SQLException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}finally{
+			DBUtil.close(conn, stmt, rs);
+		}
 		return null;
 	}
 	
@@ -112,6 +155,66 @@ public class CourseDao {
 			DBUtil.close(conn, stmt, null);
 		}
 		return false;
+	}
+	
+	/*获取所有课程*/
+	public ArrayList<Course> getAllCourses(){
+		Connection conn=DBUtil.getConnection();
+		Statement stmt=null;
+		ResultSet rs=null;
+		ArrayList<Course> courses=new ArrayList<Course>();
+		String sql="select * from course";
+		
+		try {
+			stmt=conn.createStatement();
+			rs=stmt.executeQuery(sql);
+			while(rs.next()){
+				Course course=new Course();
+				course.setCourseId(rs.getString("courseId"));
+				course.setCourseName(rs.getString("courseName"));
+				course.setCourseKind(rs.getString("courseKind"));
+				course.setCourseSchedule(rs.getInt("courseSchedule"));
+				course.setCourseCredits(rs.getInt("courseCredits"));
+				courses.add(course);
+			}
+			return courses;
+		} catch (SQLException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}finally{
+			DBUtil.close(conn, stmt, rs);
+		}
+		return null;
+	}
+	
+	public ArrayList<Course> getSelectedCourse(String stuId){
+		Connection conn=DBUtil.getConnection();
+		Statement stmt=null;
+		ResultSet rs=null;
+		ArrayList<Course> courses=new ArrayList<Course>();
+		String sql="select * from course,s_c where course.courseId=s_c.courseId "
+					+ "and stuId='"+stuId+"'";
+		
+		try {
+			stmt=conn.createStatement();
+			rs=stmt.executeQuery(sql);
+			while(rs.next()){
+				Course course=new Course();
+				course.setCourseId(rs.getString("courseId"));
+				course.setCourseName(rs.getString("courseName"));
+				course.setCourseKind(rs.getString("courseKind"));
+				course.setCourseSchedule(rs.getInt("courseSchedule"));
+				course.setCourseCredits(rs.getInt("courseCredits"));
+				courses.add(course);
+			}
+			return courses;
+		} catch (SQLException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}finally{
+			DBUtil.close(conn, stmt, rs);
+		}
+		return null;
 	}
 	
 }

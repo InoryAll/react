@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.entity.Student;
+import com.service.StudentCourseService;
 import com.service.StudentInfoService;
 import com.service.StudentLoginService;
 import com.service.StudentRegisterService;
@@ -22,7 +23,6 @@ public class StudentAction extends HttpServlet{
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out=response.getWriter();
-		/*out.print("<h1>this is StudentServlet</h1>");*/
 		String action=null;
 		action=request.getParameter("action");
 		if(action==null){
@@ -31,6 +31,7 @@ public class StudentAction extends HttpServlet{
 		String message;
 		Student stu=new Student();
 		String stuId;
+		String courseId;
 		switch(action){
 			case "login":
 				stuId=request.getParameter("id");
@@ -77,6 +78,49 @@ public class StudentAction extends HttpServlet{
 				boolean isUpdated=stuUpdateInfoService.updateSearchInfo(stu);
 				message=stuUpdateInfoService.updateReturnMessage(isUpdated, stu);
 				out.write(message);
+				break;
+			case "initialSearch":
+				StudentCourseService stuCourseInitialService=new StudentCourseService();
+				message=stuCourseInitialService.getInitialSearch();
+				out.write(message);
+				break;
+			case "initialSearchTable":
+				StudentCourseService stuCourseTableInitialService=new StudentCourseService();
+				message=stuCourseTableInitialService.getInitialSearchTable();
+				out.write(message);
+				break;
+			case "searchCourse":
+				String courseName=request.getParameter("courseName");
+				String teaName=request.getParameter("teaName");
+				StudentCourseService stuCourseTableSearchService=new StudentCourseService();
+				message=stuCourseTableSearchService.getConditionSearchTable(courseName, teaName);
+				out.write(message);
+				break;
+			case "selectCourse":
+				stuId=request.getParameter("stuId");
+				courseId=request.getParameter("courseId");
+				StudentCourseService stuCourseSelectService=new StudentCourseService();		
+				boolean isSelected=stuCourseSelectService.selectCourseById(stuId, courseId);
+				message=stuCourseSelectService.selectedCourseReturnMessage(isSelected);
+				out.write(message);
+				break;
+			case "selectedCourse":
+				stuId=request.getParameter("stuId");
+				StudentCourseService stuCourseSelectedService=new StudentCourseService();
+				message=stuCourseSelectedService.getSelectedSearchTable(stuId);
+				out.write(message);
+				break;
+			case "deleteCourse":
+				stuId=request.getParameter("stuId");
+				courseId=request.getParameter("courseId");
+				StudentCourseService stuCourseDeletedService=new StudentCourseService();
+				boolean isDeleted=stuCourseDeletedService.deleteCourseById(stuId, courseId);
+				message=stuCourseDeletedService.deletedCourseReturnMessage(isDeleted);
+				out.write(message);
+				break;
+			case "judgedCourse":
+				break;
+			case "judgeCourse":
 				break;
 		}
 	}

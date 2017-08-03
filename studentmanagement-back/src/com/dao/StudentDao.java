@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.entity.Student;
+import com.entity.Teacher;
 import com.util.DBUtil;
 
 /*student操作类*/
@@ -124,6 +125,5 @@ public class StudentDao {
 		}
 		return false;
 	}
-
 	
 }
