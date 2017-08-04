@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.entity.Course;
+import com.entity.Teacher;
 import com.util.DBUtil;
 
 /*course操作类*/
@@ -217,4 +218,63 @@ public class CourseDao {
 		return null;
 	}
 	
+	public ArrayList<Course> getJudgedCourse(String stuId){
+		Connection conn=DBUtil.getConnection();
+		Statement stmt=null;
+		ResultSet rs=null;
+		ArrayList<Course> courses=new ArrayList<Course>();
+		String sql="select * from course,s_t_c where course.courseId=s_t_c.courseId "
+				+ "and stuId='"+stuId+"'";
+		
+		try {
+			stmt=conn.createStatement();
+			rs=stmt.executeQuery(sql);
+			while(rs.next()){
+				Course course=new Course();
+				course.setCourseId(rs.getString("courseId"));
+				course.setCourseName(rs.getString("courseName"));
+				course.setCourseKind(rs.getString("courseKind"));
+				course.setCourseSchedule(rs.getInt("courseSchedule"));
+				course.setCourseCredits(rs.getInt("courseCredits"));
+				courses.add(course);
+			}
+			return courses;
+		} catch (SQLException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}finally{
+			DBUtil.close(conn, stmt, rs);
+		}
+		return null;
+	}
+	
+	public ArrayList<Course> getCourseByTeaId(String teaId){
+		Connection conn=DBUtil.getConnection();
+		Statement stmt=null;
+		ResultSet rs=null;
+		ArrayList<Course> courses=new ArrayList<Course>();
+		String sql="select * from course,t_c where course.courseId=t_c.courseId "
+				+ "and t_c.teaId='"+teaId+"'";
+		
+		try {
+			stmt=conn.createStatement();
+			rs=stmt.executeQuery(sql);
+			while(rs.next()){
+				Course course=new Course();
+				course.setCourseId(rs.getString("courseId"));
+				course.setCourseName(rs.getString("courseName"));
+				course.setCourseKind(rs.getString("courseKind"));
+				course.setCourseSchedule(rs.getInt("courseSchedule"));
+				course.setCourseCredits(rs.getInt("courseCredits"));
+				courses.add(course);
+			}
+			return courses;
+		} catch (SQLException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}finally{
+			DBUtil.close(conn, stmt, rs);
+		}
+		return null;
+	}
 }

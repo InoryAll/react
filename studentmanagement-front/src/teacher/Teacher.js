@@ -30,7 +30,7 @@ export default class Teacher extends React.Component{
                                 <Menu.Item key="2"><Link to="/teacher/info/update">修改个人信息</Link></Menu.Item>
                             </SubMenu>
                             <SubMenu key="sub2" title={<span><Icon type="book" />教师课程管理</span>}>
-                                <Menu.Item key="3">查看所有课程</Menu.Item>
+                                <Menu.Item key="3"><Link to="/teacher/course/search">查看所有课程</Link></Menu.Item>
                                 <Menu.Item key="4">添加新课程</Menu.Item>
                                 <Menu.Item key="5">删除课程</Menu.Item>
                             </SubMenu>

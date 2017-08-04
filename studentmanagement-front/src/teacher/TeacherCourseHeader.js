@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Form, Input, Button, Radio, Select, Modal } from 'antd';
-import './Student.css';
+import './Teacher.css';
 import 'isomorphic-fetch';
 import 'whatwg-fetch';
 import 'whatwg-fetch/fetch';
@@ -9,7 +9,7 @@ import 'whatwg-fetch/fetch';
 const FormItem = Form.Item;
 const Option = Select.Option;
 
-class StudentCourseHeader extends React.Component{
+class TeacherCourseHeader extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -137,4 +137,4 @@ class StudentCourseHeader extends React.Component{
     }
 }
 
-export const StudentCourseHeaderForm=Form.create()(StudentCourseHeader);
+export const TeacherCourseHeaderForm=Form.create()(TeacherCourseHeader);

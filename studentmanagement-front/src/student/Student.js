@@ -32,8 +32,8 @@ export default class Student extends React.Component{
                                 <Menu.Item key="5"><Link to="/student/course/delete">删除已选课程</Link></Menu.Item>
                             </SubMenu>
                             <SubMenu key="sub3" title={<span><Icon type="like-o" />教学质量评价</span>}>
-                                <Menu.Item key="6">查看已评价的课程</Menu.Item>
-                                <Menu.Item key="7">查看需要评价的课程</Menu.Item>
+                                <Menu.Item key="6"><Link to="/student/judge/search">查看已评价的课程</Link></Menu.Item>
+                                <Menu.Item key="7"><Link to="/student/judge/dojudge">查看需要评价的课程</Link></Menu.Item>
                             </SubMenu>
                         </Menu>
                     </Sider>

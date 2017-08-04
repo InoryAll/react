@@ -97,3 +97,19 @@
 .teacherNameSelect{
     width: 200px !important;
 }
+
+/*评价框部分*/
+.judge-info{
+    padding: 0 0 10px;
+}
+.judge-title{
+    font-size: 18px;
+    padding: 0 10px;
+}
+.judge-detail{
+    font-size: 18px;
+}
+.judge-label{
+    padding: 0 10px;
+    vertical-align: middle;
+}

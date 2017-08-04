@@ -101,6 +101,14 @@ export default class StudentCourseSelect extends React.Component{
             dataIndex: 'courseName',
             key: 'courseName'
         }, {
+            title: '教师号',
+            dataIndex: 'teaId',
+            key: 'teaId',
+        },{
+            title: '教师名',
+            dataIndex: 'teaName',
+            key: 'teaName',
+        },{
             title: '课程性质',
             dataIndex: 'courseKind',
             key: 'courseKind',

@@ -4,9 +4,11 @@ import java.util.ArrayList;
 
 import com.dao.CourseDao;
 import com.dao.S_CDao;
+import com.dao.T_C_ViewDao;
 import com.dao.TeacherDao;
 import com.entity.Course;
 import com.entity.S_C;
+import com.entity.T_C_View;
 import com.entity.Teacher;
 
 /*处理学生课程操作*/
@@ -44,10 +46,10 @@ public class StudentCourseService {
 		return "{\"code\":\"0\",\"message\":\"初始化失败，请重试!\"}";
 	}
 	
-	public String getInitialSearchTable(){
-		CourseDao courseDao=new CourseDao();
-		ArrayList<Course> courses=new ArrayList<Course>();
-		courses=courseDao.getAllCourses();
+	public String getInitialSearchTable(){		
+		T_C_ViewDao viewDao=new T_C_ViewDao();
+		ArrayList<T_C_View> courses=new ArrayList<T_C_View>();
+		courses=viewDao.getAllCourseView();
 		String courseStr="";
 		
 		if(courses!=null){
@@ -55,6 +57,8 @@ public class StudentCourseService {
 				if(i==courses.size()-1){
 					courseStr+="{\"courseId\":\""+courses.get(i).getCourseId()+"\""
 							+ ",\"courseName\":\""+courses.get(i).getCourseName()+"\""
+							+ ",\"teaId\":\""+courses.get(i).getTeaId()+"\""
+							+ ",\"teaName\":\""+courses.get(i).getTeaName()+"\""
 							+ ",\"courseKind\":\""+courses.get(i).getCourseKind()+"\""
 							+ ",\"courseSchedule\":\""+courses.get(i).getCourseSchedule()+"\""
 							+ ",\"courseCredits\":\""+courses.get(i).getCourseCredits()+"\""
@@ -63,6 +67,8 @@ public class StudentCourseService {
 				}
 				courseStr+="{\"courseId\":\""+courses.get(i).getCourseId()+"\""
 							+ ",\"courseName\":\""+courses.get(i).getCourseName()+"\""
+							+ ",\"teaId\":\""+courses.get(i).getTeaId()+"\""
+							+ ",\"teaName\":\""+courses.get(i).getTeaName()+"\""
 							+ ",\"courseKind\":\""+courses.get(i).getCourseKind()+"\""
 							+ ",\"courseSchedule\":\""+courses.get(i).getCourseSchedule()+"\""
 							+ ",\"courseCredits\":\""+courses.get(i).getCourseCredits()+"\""
@@ -76,9 +82,9 @@ public class StudentCourseService {
 	}
 	
 	public String getSelectedSearchTable(String stuId){
-		CourseDao courseDao=new CourseDao();
-		ArrayList<Course> courses=new ArrayList<Course>();
-		courses=courseDao.getSelectedCourse(stuId);
+		T_C_ViewDao viewDao=new T_C_ViewDao();
+		ArrayList<T_C_View> courses=new ArrayList<T_C_View>();
+		courses=viewDao.getSelectedCourseView(stuId);
 		String courseStr="";
 		
 		if(courses!=null){
@@ -86,6 +92,8 @@ public class StudentCourseService {
 				if(i==courses.size()-1){
 					courseStr+="{\"courseId\":\""+courses.get(i).getCourseId()+"\""
 							+ ",\"courseName\":\""+courses.get(i).getCourseName()+"\""
+							+ ",\"teaId\":\""+courses.get(i).getTeaId()+"\""
+							+ ",\"teaName\":\""+courses.get(i).getTeaName()+"\""
 							+ ",\"courseKind\":\""+courses.get(i).getCourseKind()+"\""
 							+ ",\"courseSchedule\":\""+courses.get(i).getCourseSchedule()+"\""
 							+ ",\"courseCredits\":\""+courses.get(i).getCourseCredits()+"\""
@@ -94,6 +102,8 @@ public class StudentCourseService {
 				}
 				courseStr+="{\"courseId\":\""+courses.get(i).getCourseId()+"\""
 							+ ",\"courseName\":\""+courses.get(i).getCourseName()+"\""
+							+ ",\"teaId\":\""+courses.get(i).getTeaId()+"\""
+							+ ",\"teaName\":\""+courses.get(i).getTeaName()+"\""
 							+ ",\"courseKind\":\""+courses.get(i).getCourseKind()+"\""
 							+ ",\"courseSchedule\":\""+courses.get(i).getCourseSchedule()+"\""
 							+ ",\"courseCredits\":\""+courses.get(i).getCourseCredits()+"\""

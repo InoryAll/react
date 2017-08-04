@@ -102,6 +102,14 @@ export default class StudentCourseDelete extends React.Component{
             dataIndex: 'courseName',
             key: 'courseName'
         }, {
+            title: '教师号',
+            dataIndex: 'teaId',
+            key: 'teaId',
+        },{
+            title: '教师名',
+            dataIndex: 'teaName',
+            key: 'teaName',
+        }, {
             title: '课程性质',
             dataIndex: 'courseKind',
             key: 'courseKind',
@@ -113,7 +121,7 @@ export default class StudentCourseDelete extends React.Component{
             title: '课程学分',
             dataIndex: 'courseCredits',
             key: 'courseCredits',
-        },,{
+        },{
             title: '操作',
             key: 'action',
             render: (text, record,index) => (

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.entity.Teacher;
+import com.service.TeacherCourseService;
 import com.service.TeacherInfoService;
 import com.service.TeacherLoginService;
 
@@ -58,6 +59,15 @@ public class TeacherAction extends HttpServlet{
 				boolean isUpdated=teaUpdateInfoService.updateSearchInfo(tea);
 				message=teaUpdateInfoService.updateReturnMessage(isUpdated, tea);
 				out.write(message);
+				break;
+			case "searchCourse":
+				teaId=request.getParameter("teaId");
+				TeacherCourseService teaSearchService=new TeacherCourseService();
+				message=teaSearchService.getSearchTable(teaId);
+				out.write(message);
+				System.out.println();
+				break;
+			case "addCourse":
 				break;
 		}
 	}

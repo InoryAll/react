@@ -19,6 +19,9 @@ import {TeacherInfoUpdateForm} from "./teacher/TeacherInfoUpdate";
 import StudentCourseSearch from "./student/StudentCourseSearch";
 import StudentCourseSelect from "./student/StudentCourseSelect";
 import StudentCourseDelete from "./student/StudentCourseDelete";
+import StudentCourseJudgeSearch from "./student/StudentCourseJudgeSearch";
+import StudentCourseJudge from "./student/StudentCourseJudge";
+import TeacherCourseSearch from "./teacher/TeacherCourseSearch";
 
 export const routers=(
     <Router history={browserHistory}>
@@ -40,11 +43,14 @@ export const routers=(
                 <Route path="/student/course/search" components={StudentCourseSearch}/>
                 <Route path="/student/course/select" components={StudentCourseSelect}/>
                 <Route path="/student/course/delete" components={StudentCourseDelete}/>
+                <Route path="/student/judge/search" components={StudentCourseJudgeSearch}/>
+                <Route path="/student/judge/dojudge" components={StudentCourseJudge}/>
             </Route>
             <Route path="teacher(/:id)" components={Teacher}>
                 <IndexRoute components={TeacherCarousel}/>
                 <Route path="/teacher/info/search" components={TeacherInfoShowForm}/>
                 <Route path="/teacher/info/update" components={TeacherInfoUpdateForm}/>
+                <Route path="/teacher/course/search" components={TeacherCourseSearch}/>
             </Route>
 
         </Route>

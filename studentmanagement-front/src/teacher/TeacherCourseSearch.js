@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {StudentCourseHeaderForm} from './StudentCourseHeader';
+import {TeacherCourseHeaderForm} from './TeacherCourseHeader';
 import {Card,Icon,Modal,Table} from 'antd';
 import {getCookie} from "../util";
 
-export default class StudentCourseJudgeSearch extends React.Component{
+export default class TeacherCourseSearch extends React.Component{
     constructor(props){
         super(props);
         this.state={
@@ -13,14 +13,14 @@ export default class StudentCourseJudgeSearch extends React.Component{
     }
 
     fetchData=() => {
-        fetch('http://localhost:8080/studentmanagement/StudentAction',{
+        fetch('http://localhost:8080/studentmanagement/TeacherAction',{
             method:'POST',
             mode:'cors',
             headers:{
                 'Accept': 'application/json',
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
-            body:'action=judgedCourse'+'&stuId='+getCookie('username')
+            body:'action=searchCourse'+'&teaId='+getCookie('username')
         }).then((response) => {
             if (response.ok){
                 return response.json();
@@ -62,14 +62,6 @@ export default class StudentCourseJudgeSearch extends React.Component{
             dataIndex: 'courseName',
             key: 'courseName'
         }, {
-            title: '教师号',
-            dataIndex: 'teaId',
-            key: 'teaId',
-        },{
-            title: '教师名',
-            dataIndex: 'teaName',
-            key: 'teaName',
-        }, {
             title: '课程性质',
             dataIndex: 'courseKind',
             key: 'courseKind',
@@ -84,8 +76,8 @@ export default class StudentCourseJudgeSearch extends React.Component{
         }];
 
         return (
-            <Card title="已评价课程查询" className="search-info-form-container">
-                <StudentCourseHeaderForm refreshTable={this.refreshData}/>
+            <Card title="课程查询" className="search-info-form-container">
+                <TeacherCourseHeaderForm refreshTable={this.refreshData} data={this.state.data}/>
                 <Table
                     columns={columns}
                     dataSource={this.state.data}

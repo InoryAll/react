@@ -8,9 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.entity.S_T_C;
 import com.entity.Student;
 import com.service.StudentCourseService;
 import com.service.StudentInfoService;
+import com.service.StudentJudgeService;
 import com.service.StudentLoginService;
 import com.service.StudentRegisterService;
 
@@ -32,6 +34,7 @@ public class StudentAction extends HttpServlet{
 		Student stu=new Student();
 		String stuId;
 		String courseId;
+		String teaId;
 		switch(action){
 			case "login":
 				stuId=request.getParameter("id");
@@ -119,8 +122,25 @@ public class StudentAction extends HttpServlet{
 				out.write(message);
 				break;
 			case "judgedCourse":
+				stuId=request.getParameter("stuId");
+				StudentJudgeService stuJudgedService=new StudentJudgeService();
+				message=stuJudgedService.getJudgedSearchTable(stuId);
+				out.write(message);
 				break;
 			case "judgeCourse":
+				S_T_C s_t_c=new S_T_C();
+				s_t_c.setStuId(request.getParameter("stuId"));
+				s_t_c.setCourseId(request.getParameter("courseId"));
+				s_t_c.setTeaId(request.getParameter("teaId"));
+				s_t_c.setAppearance(Integer.parseInt(request.getParameter("appearance")));
+				s_t_c.setQuality(Integer.parseInt(request.getParameter("quality")));
+				s_t_c.setAtmosphere(Integer.parseInt(request.getParameter("atmosphere")));
+				s_t_c.setMethod(Integer.parseInt(request.getParameter("method")));
+				s_t_c.setAttitude(Integer.parseInt(request.getParameter("attitude")));
+				StudentJudgeService stuJudgeService=new StudentJudgeService();
+				boolean isJudged=stuJudgeService.judgeCourseById(s_t_c);
+				message=stuJudgeService.judgeCourseReturnMessage(isJudged);
+				out.write(message);
 				break;
 		}
 	}
