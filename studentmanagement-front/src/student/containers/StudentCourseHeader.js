@@ -91,6 +91,7 @@ class StudentCourseHeader extends React.Component{
 
     render(){
         const { getFieldDecorator } = this.props.form;
+        console.log(this.props.courses);
         return (
             <div>
                 <Form layout="inline" onSubmit={this.handleSubmit} className="search-conditions">
@@ -143,8 +144,8 @@ class StudentCourseHeader extends React.Component{
 
 function mapStateToProps(state) {
     return {
-        courses:state.courses,
-        teachers:state.teachers
+        courses:state.courseFilter.courses,
+        teachers:state.courseFilter.teachers
     };
 }
 

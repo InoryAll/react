@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="814d5fb3-8ccb-4c5b-b0b8-9b34c7fa0412" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/student/containers/StudentCourseHeader.js" afterPath="$PROJECT_DIR$/src/student/containers/StudentCourseHeader.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="StudentCourseHeader.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="StudentCourseHeader.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/student/containers/StudentCourseHeader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="146" column="31" lean-forward="true" selection-start-line="146" selection-start-column="31" selection-end-line="146" selection-end-column="31" />
+            <state relative-caret-position="270">
+              <caret line="148" column="6" lean-forward="true" selection-start-line="148" selection-start-column="6" selection-end-line="148" selection-end-column="6" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#653#1522#0" expanded="false" />
@@ -29,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="actions.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="actions.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/action/actions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+            <state relative-caret-position="121">
+              <caret line="251" column="0" lean-forward="true" selection-start-line="251" selection-start-column="0" selection-end-line="251" selection-end-column="0" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
                 <element signature="e#220#285#0" expanded="false" />
@@ -200,8 +200,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="70" />
-    <option name="y" value="14" />
+    <option name="x" value="-31" />
+    <option name="y" value="11" />
     <option name="width" value="1920" />
     <option name="height" value="1024" />
   </component>
@@ -377,7 +377,7 @@
       <workItem from="1501634549070" duration="28905000" />
       <workItem from="1501720008950" duration="24735000" />
       <workItem from="1501807010191" duration="22203000" />
-      <workItem from="1502065930871" duration="26848000" />
+      <workItem from="1502065930871" duration="27785000" />
     </task>
     <task id="LOCAL-00001" summary="do...">
       <created>1501560749299</created>
@@ -425,7 +425,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154745000" />
+    <option name="totallyTimeSpent" value="155682000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -437,10 +437,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="70" y="14" width="1920" height="1024" extended-state="0" />
+    <frame x="-31" y="11" width="1920" height="1024" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17375132" sideWeight="0.6576577" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17375132" sideWeight="0.6576577" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277027" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26576576" sideWeight="0.506833" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -870,17 +871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/student/containers/StudentCourseHeader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="146" column="31" lean-forward="true" selection-start-line="146" selection-start-column="31" selection-end-line="146" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#653#1522#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/reducers/courseFilter.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -899,8 +889,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/action/actions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+        <state relative-caret-position="121">
+          <caret line="251" column="0" lean-forward="true" selection-start-line="251" selection-start-column="0" selection-end-line="251" selection-end-column="0" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
             <element signature="e#220#285#0" expanded="false" />
@@ -915,6 +905,17 @@
             <element signature="e#7744#8649#0" expanded="false" />
             <element signature="e#8749#8815#0" expanded="false" />
             <element signature="e#8852#9963#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/student/containers/StudentCourseHeader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="148" column="6" lean-forward="true" selection-start-line="148" selection-start-column="6" selection-end-line="148" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#653#1522#0" expanded="false" />
           </folding>
         </state>
       </provider>
