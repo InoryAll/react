@@ -7,8 +7,11 @@ import {
 import 'isomorphic-fetch';
 import 'whatwg-fetch';
 import 'whatwg-fetch/fetch';
-import {getCookie,setCookie} from "../util";
+import {getCookie,setCookie} from "../../util";
 import {Link} from 'react-router';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {getStudentInfo} from '../../action/actions';
 
 
 const FormItem = Form.Item;
@@ -21,13 +24,13 @@ class StudentInfoShow extends React.Component{
 
     constructor(props){
         super(props);
-        this.state={
+       /* this.state={
             data:{}
-        };
+        };*/
     }
 
     fetchData=()=>{
-        fetch('http://localhost:8080/studentmanagement/StudentAction',{
+      /*  fetch('http://localhost:8080/studentmanagement/StudentAction',{
             method:'POST',
             mode:'cors',
             headers:{
@@ -53,11 +56,12 @@ class StudentInfoShow extends React.Component{
             }
         }).catch((e) => {
             console.log(e.message);
-        });
+        });*/
     };
 
     componentDidMount(){
-        this.fetchData();
+        /*this.fetchData();*/
+        this.props.getStudentInfo(getCookie('username'));
     }
 
     render(){
@@ -85,20 +89,20 @@ class StudentInfoShow extends React.Component{
                         {...formItemLayout}
                         label="学号:"
                     >
-                        <span className="ant-form-text">{this.state.data.stuId}</span>
+                        <span className="ant-form-text">{this.props.student.stuId}</span>
                     </FormItem>
                     <FormItem
                         {...formItemLayout}
                         label="姓名:"
                     >
-                        <span className="ant-form-text">{this.state.data.stuName}</span>
+                        <span className="ant-form-text">{this.props.student.stuName}</span>
                     </FormItem>
                     <FormItem
                         {...formItemLayout}
                         label="性别:"
                     >
                         {getFieldDecorator('role',{
-                            initialValue:this.state.data.stuSex
+                            initialValue:this.props.student.stuSex
                         })(
                             <RadioGroup>
                                 <Radio value="男" disabled>男</Radio>
@@ -110,31 +114,31 @@ class StudentInfoShow extends React.Component{
                         {...formItemLayout}
                         label="民族:"
                     >
-                        <span className="ant-form-text">{this.state.data.stuNation}</span>
+                        <span className="ant-form-text">{this.props.student.stuNation}</span>
                     </FormItem>
                     <FormItem
                         {...formItemLayout}
                         label="年龄:"
                     >
-                        <span className="ant-form-text">{this.state.data.stuAge}</span>
+                        <span className="ant-form-text">{this.props.student.stuAge}</span>
                     </FormItem>
                     <FormItem
                         {...formItemLayout}
                         label="专业:"
                     >
-                        <span className="ant-form-text">{this.state.data.stuDepartment}</span>
+                        <span className="ant-form-text">{this.props.student.stuDepartment}</span>
                     </FormItem>
                     <FormItem
                         {...formItemLayout}
                         label="班级:"
                     >
-                        <span className="ant-form-text">{this.state.data.stuClass}</span>
+                        <span className="ant-form-text">{this.props.student.stuClass}</span>
                     </FormItem>
                     <FormItem
                         {...formItemLayout}
                         label="电话:"
                     >
-                        <span className="ant-form-text">{this.state.data.stuTel}</span>
+                        <span className="ant-form-text">{this.props.student.stuTel}</span>
                     </FormItem>
                     <FormItem {...tailFormItemLayout}>
                         <Link to="/student">返回</Link>
@@ -145,5 +149,16 @@ class StudentInfoShow extends React.Component{
     }
 }
 
-export const StudentInfoShowForm = Form.create()(StudentInfoShow);
+function mapStateToProps(state) {
+    return {
+        student:state.student
+    };
+}
 
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({getStudentInfo},dispatch);
+}
+
+export const StudentInfoShowF = Form.create()(StudentInfoShow);
+
+export const StudentInfoShowForm=connect(mapStateToProps,mapDispatchToProps)(StudentInfoShowF);

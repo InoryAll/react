@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Card,Layout,Row,Col} from 'antd';
 import 'antd/dist/antd.css';
-import './Form.css';
+import '../Form.css';
 const {Header,Content} = Layout;
 export default class Form extends  React.Component{
 

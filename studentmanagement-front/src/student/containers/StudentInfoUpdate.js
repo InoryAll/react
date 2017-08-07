@@ -7,8 +7,11 @@ import {
 import 'isomorphic-fetch';
 import 'whatwg-fetch';
 import 'whatwg-fetch/fetch';
-import {getCookie,setCookie} from "../util";
+import {getCookie,setCookie} from "../../util";
 import {Link} from 'react-router';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {getUpdatedStudentInfo} from "../../action/actions"
 
 
 const FormItem = Form.Item;
@@ -21,12 +24,12 @@ class StudentInfoUpdate extends React.Component{
 
     constructor(props){
         super(props);
-        this.state={
+       /* this.state={
             data:{}
-        };
+        };*/
     }
 
-    fetchData=()=>{
+    /*fetchData=()=>{
         fetch('http://localhost:8080/studentmanagement/StudentAction',{
             method:'POST',
             mode:'cors',
@@ -46,16 +49,16 @@ class StudentInfoUpdate extends React.Component{
         }).catch((e) => {
             console.log(e.message);
         });
-    };
+    };*/
 
     componentDidMount(){
-        this.fetchData();
+       /* this.fetchData();*/
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll((err, values) => {
-            fetch('http://localhost:8080/studentmanagement/StudentAction',{
+            /*            fetch('http://localhost:8080/studentmanagement/StudentAction',{
                 method:'POST',
                 mode:'cors',
                 headers:{
@@ -92,6 +95,17 @@ class StudentInfoUpdate extends React.Component{
                 }
             }).catch((e) => {
                 console.log(e.message);
+            });*/
+            this.props.getUpdatedStudentInfo({
+                id:getCookie('username'),
+                password:values.password,
+                name:values.name,
+                sex:values.sex,
+                nation:values.nation,
+                age:values.age,
+                department:values.department,
+                class:values.class,
+                tel:values.tel
             });
         });
     };
@@ -147,7 +161,7 @@ class StudentInfoUpdate extends React.Component{
                         {...formItemLayout}
                         label="学号:"
                     >
-                        <span className="ant-form-text">{this.state.data.stuId}</span>
+                        <span className="ant-form-text">{this.props.student.stuId}</span>
                     </FormItem>
                     <FormItem
                         {...formItemLayout}
@@ -160,7 +174,7 @@ class StudentInfoUpdate extends React.Component{
                             }, {
                                 validator: this.checkConfirm,
                             }],
-                            initialValue:this.state.data.stuPassword
+                            initialValue:this.props.student.stuPassword
                         })(
                             <Input type="password" />
                         )}
@@ -176,7 +190,7 @@ class StudentInfoUpdate extends React.Component{
                             }, {
                                 validator: this.checkPassword,
                             }],
-                            initialValue:this.state.data.stuPassword
+                            initialValue:this.props.student.stuPassword
                         })(
                             <Input type="password" onBlur={this.handleConfirmBlur} />
                         )}
@@ -188,7 +202,7 @@ class StudentInfoUpdate extends React.Component{
                     >
                         {getFieldDecorator('name',{
                             rules:[{required:true,message:'请输入姓名!'}],
-                            initialValue:this.state.data.stuName
+                            initialValue:this.props.student.stuName
                         })(
                             <Input />
                         )}
@@ -199,7 +213,7 @@ class StudentInfoUpdate extends React.Component{
                     >
                         {getFieldDecorator('sex',{
                             rules:[{required:true}],
-                            initialValue:this.state.data.stuSex
+                            initialValue:this.props.student.stuSex
                         })(
                             <RadioGroup>
                                 <Radio value="男">男</Radio>
@@ -214,7 +228,7 @@ class StudentInfoUpdate extends React.Component{
                     >
                         {getFieldDecorator('nation',{
                             rules:[{ required:true,message:'请输入民族!'}],
-                            initialValue:this.state.data.stuNation
+                            initialValue:this.props.student.stuNation
                         })(
                             <Input/>
                         )}
@@ -226,7 +240,7 @@ class StudentInfoUpdate extends React.Component{
                     >
                         {getFieldDecorator('age',{
                             rules:[{required:true,message:'请输入年龄!'}],
-                            initialValue:this.state.data.stuAge
+                            initialValue:this.props.student.stuAge
                         })(
                             <Input/>
                         )}
@@ -237,7 +251,7 @@ class StudentInfoUpdate extends React.Component{
                     >
                         {getFieldDecorator('department', {
                             rules: [ {required : true, message: '请选择你的专业!'}],
-                            initialValue:this.state.data.stuDepartment
+                            initialValue:this.props.student.stuDepartment
                         })(
                             <Select placeholder="选择专业">
                                 <Option value="软件工程">软件工程</Option>
@@ -255,7 +269,7 @@ class StudentInfoUpdate extends React.Component{
                     >
                         {getFieldDecorator('class',{
                             rules:[{required:true,message:'请输入班级!'}],
-                            initialValue:this.state.data.stuClass
+                            initialValue:this.props.student.stuClass
                         })(
                             <Input/>
                         )}
@@ -267,7 +281,7 @@ class StudentInfoUpdate extends React.Component{
                     >
                         {getFieldDecorator('tel',{
                             rules:[{required:true,message:'请输入电话!'}],
-                            initialValue:this.state.data.stuTel
+                            initialValue:this.props.student.stuTel
                         })(
                             <Input/>
                         )}
@@ -284,5 +298,17 @@ class StudentInfoUpdate extends React.Component{
     }
 }
 
-export const StudentInfoUpdateForm = Form.create()(StudentInfoUpdate);
+function mapStateToProps(state) {
+    return {
+        student:state.student
+    };
+}
 
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({getUpdatedStudentInfo}, dispatch);
+}
+
+
+export const StudentInfoUpdateF = Form.create()(StudentInfoUpdate);
+
+export const StudentInfoUpdateForm=connect(mapStateToProps,mapDispatchToProps)(StudentInfoUpdateF);

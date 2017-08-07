@@ -4,14 +4,18 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Main from "./Main";
+import Main from "./components/Main";
 import './index.css';
 import {routers} from "./routers";
-import Init from "./Init";
+import Init from "./components/Init";
+import store from './store/store';
+import {Provider} from 'react-redux';
 
 ReactDOM.render(
-    <Init>
-        {routers}
-    </Init>,
+    <Provider store={store}>
+        <Init>
+            {routers}
+        </Init>
+    </Provider>,
     document.getElementById('root')
 );

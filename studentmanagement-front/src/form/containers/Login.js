@@ -2,13 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Card,Layout,Row,Col,Form,Icon,Input,Button,Checkbox,Radio,Modal} from 'antd';
 import 'antd/dist/antd.css';
-import './Form.css';
+import '../Form.css';
 import {Link,browserHistory} from 'react-router';
 import 'isomorphic-fetch';
 import {polyfill} from 'es6-promise';
 import 'whatwg-fetch';
 import 'es6-promise/dist/es6-promise.min';
-import {setCookie,getCookie} from '../util';
+import {setCookie,getCookie} from '../../util';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import {doLogin} from "../../action/actions";
 
 polyfill();
 
@@ -21,11 +24,46 @@ class Login extends  React.Component{
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                    if (values.role==='student'){
-                            fetch('http://localhost:8080/studentmanagement/StudentAction', {
-                                method: 'POST',
-                                mode: 'cors',
-                                headers: {
+                     /*   if (values.role==='student'){
+                                fetch('http://localhost:8080/studentmanagement/StudentAction', {
+                                    method: 'POST',
+                                    mode: 'cors',
+                                    headers: {
+                                        'Accept': 'application/json',
+                                        'Content-Type': 'application/x-www-form-urlencoded'
+                                    },
+                                    body: 'id='+values.id+"&password="+values.password+"&action=login"
+                                }).then((response) => {
+                                    if (response.ok){
+                                        return response.json();
+                                    }
+                                }).then((data)=>{
+                                    if (data.code==='0'){
+                                        Modal.error({
+                                            title: '错误',
+                                            content: data.message,
+                                        });
+                                    }
+                                    else {
+                                        const modal=Modal.success({
+                                            title: '成功',
+                                            content: data.message,
+                                        });
+                                        setTimeout(()=>{
+                                            modal.destroy();
+                                            browserHistory.push('/student/'+values.id);
+                                            setCookie('username',values.id);
+                                        },1000);
+                                    }
+                                }).catch((e)=>{
+                                    console.log(e.message);
+                                });
+                            }
+                        if (values.role==='teacher'){
+                            fetch('http://localhost:8080/studentmanagement/TeacherAction',{
+                                method:'POST',
+                                mode:'cors',
+                                headers:{
                                     'Accept': 'application/json',
                                     'Content-Type': 'application/x-www-form-urlencoded'
                                 },
@@ -34,64 +72,31 @@ class Login extends  React.Component{
                                 if (response.ok){
                                     return response.json();
                                 }
-                            }).then((data)=>{
+                            }).then((data) => {
                                 if (data.code==='0'){
                                     Modal.error({
                                         title: '错误',
                                         content: data.message,
                                     });
                                 }
-                                else {
+                                else
+                                {
                                     const modal=Modal.success({
                                         title: '成功',
                                         content: data.message,
                                     });
                                     setTimeout(()=>{
                                         modal.destroy();
-                                        browserHistory.push('/student/'+values.id);
+                                        browserHistory.push('/teacher/'+values.id);
                                         setCookie('username',values.id);
                                     },1000);
                                 }
                             }).catch((e)=>{
                                 console.log(e.message);
                             });
-                        }
-                    if (values.role==='teacher'){
-                        fetch('http://localhost:8080/studentmanagement/TeacherAction',{
-                            method:'POST',
-                            mode:'cors',
-                            headers:{
-                                'Accept': 'application/json',
-                                'Content-Type': 'application/x-www-form-urlencoded'
-                            },
-                            body: 'id='+values.id+"&password="+values.password+"&action=login"
-                        }).then((response) => {
-                            if (response.ok){
-                                return response.json();
-                            }
-                        }).then((data) => {
-                            if (data.code==='0'){
-                                Modal.error({
-                                    title: '错误',
-                                    content: data.message,
-                                });
-                            }
-                            else
-                            {
-                                const modal=Modal.success({
-                                    title: '成功',
-                                    content: data.message,
-                                });
-                                setTimeout(()=>{
-                                    modal.destroy();
-                                    browserHistory.push('/teacher/'+values.id);
-                                    setCookie('username',values.id);
-                                },1000);
-                            }
-                        }).catch((e)=>{
-                            console.log(e.message);
-                        });
-                    }
+                        }*/
+                     console.log();
+                    this.props.doLogin(values.id,values.role,values.password);
                 }
             });
     };
@@ -150,4 +155,16 @@ class Login extends  React.Component{
     }
 }
 
-export const LoginForm = Form.create()(Login);
+function mapStateToProps(state) {
+    return {
+        isSucceed:state.isSucceed
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ doLogin }, dispatch);
+}
+
+export const LoginF = Form.create()(Login);
+
+export const LoginForm= connect(mapStateToProps,mapDispatchToProps)(LoginF);

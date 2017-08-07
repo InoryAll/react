@@ -3,7 +3,7 @@
 * */
 import React from 'react';
 import 'antd/dist/antd.css';
-import LogoGather from './components/LogoGather';
+import LogoGather from './LogoGather';
 import {browserHistory} from 'react-router';
 
 
