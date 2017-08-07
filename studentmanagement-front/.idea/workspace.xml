@@ -2,34 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="814d5fb3-8ccb-4c5b-b0b8-9b34c7fa0412" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/action/actions.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/reducers/course.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/reducers/courseFilter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/reducers/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/reducers/login.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/reducers/register.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/reducers/student.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/store/store.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routers.js" afterPath="$PROJECT_DIR$/src/routers.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Init.js" afterPath="$PROJECT_DIR$/src/components/Init.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Main.js" afterPath="$PROJECT_DIR$/src/components/Main.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/form/Form.js" afterPath="$PROJECT_DIR$/src/form/components/Form.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/form/Login.js" afterPath="$PROJECT_DIR$/src/form/containers/Login.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/form/Register.js" afterPath="$PROJECT_DIR$/src/form/containers/Register.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/student/Student.js" afterPath="$PROJECT_DIR$/src/student/components/Student.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/student/StudentCarousel.js" afterPath="$PROJECT_DIR$/src/student/components/StudentCarousel.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/student/StudentCourseDelete.js" afterPath="$PROJECT_DIR$/src/student/containers/StudentCourseDelete.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/student/StudentCourseHeader.js" afterPath="$PROJECT_DIR$/src/student/containers/StudentCourseHeader.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/student/StudentCourseJudge.js" afterPath="$PROJECT_DIR$/src/student/containers/StudentCourseJudge.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/student/StudentCourseJudgeSearch.js" afterPath="$PROJECT_DIR$/src/student/containers/StudentCourseJudgeSearch.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/student/StudentCourseSearch.js" afterPath="$PROJECT_DIR$/src/student/containers/StudentCourseSearch.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/student/StudentCourseSelect.js" afterPath="$PROJECT_DIR$/src/student/containers/StudentCourseSelect.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/student/StudentInfoShow.js" afterPath="$PROJECT_DIR$/src/student/containers/StudentInfoShow.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/student/StudentInfoUpdate.js" afterPath="$PROJECT_DIR$/src/student/containers/StudentInfoUpdate.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -404,7 +377,7 @@
       <workItem from="1501634549070" duration="28905000" />
       <workItem from="1501720008950" duration="24735000" />
       <workItem from="1501807010191" duration="22203000" />
-      <workItem from="1502065930871" duration="26764000" />
+      <workItem from="1502065930871" duration="26848000" />
     </task>
     <task id="LOCAL-00001" summary="do...">
       <created>1501560749299</created>
@@ -441,11 +414,18 @@
       <option name="project" value="LOCAL" />
       <updated>1501753991547</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="do...">
+      <created>1502099031507</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1502099031507</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154661000" />
+    <option name="totallyTimeSpent" value="154745000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
