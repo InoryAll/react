@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="814d5fb3-8ccb-4c5b-b0b8-9b34c7fa0412" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/reducers/judge.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/action/actions.js" afterPath="$PROJECT_DIR$/src/action/actions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/course.js" afterPath="$PROJECT_DIR$/src/reducers/course.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/courseFilter.js" afterPath="$PROJECT_DIR$/src/reducers/courseFilter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/index.js" afterPath="$PROJECT_DIR$/src/reducers/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/student.js" afterPath="$PROJECT_DIR$/src/reducers/student.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/student/containers/StudentCourseDelete.js" afterPath="$PROJECT_DIR$/src/student/containers/StudentCourseDelete.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/student/containers/StudentCourseHeader.js" afterPath="$PROJECT_DIR$/src/student/containers/StudentCourseHeader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/student/containers/StudentCourseJudge.js" afterPath="$PROJECT_DIR$/src/student/containers/StudentCourseJudge.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/student/containers/StudentCourseJudgeSearch.js" afterPath="$PROJECT_DIR$/src/student/containers/StudentCourseJudgeSearch.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/student/containers/StudentCourseSearch.js" afterPath="$PROJECT_DIR$/src/student/containers/StudentCourseSearch.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/student/containers/StudentCourseSelect.js" afterPath="$PROJECT_DIR$/src/student/containers/StudentCourseSelect.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/student/containers/StudentInfoUpdate.js" afterPath="$PROJECT_DIR$/src/student/containers/StudentInfoUpdate.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -78,8 +65,8 @@
       <file leaf-file-name="StudentInfoUpdate.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/student/containers/StudentInfoUpdate.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="107" column="30" lean-forward="true" selection-start-line="107" selection-start-column="30" selection-end-line="107" selection-end-column="30" />
+            <state relative-caret-position="423">
+              <caret line="112" column="32" lean-forward="true" selection-start-line="112" selection-start-column="32" selection-end-line="112" selection-end-column="32" />
               <folding>
                 <element signature="e#725#773#0" expanded="false" />
                 <element signature="e#785#1445#0" expanded="false" />
@@ -264,7 +251,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="10" />
     <option name="y" value="2" />
     <option name="width" value="1920" />
@@ -443,7 +430,7 @@
       <workItem from="1501720008950" duration="24735000" />
       <workItem from="1501807010191" duration="22203000" />
       <workItem from="1502065930871" duration="27800000" />
-      <workItem from="1502152683945" duration="24457000" />
+      <workItem from="1502152683945" duration="24485000" />
     </task>
     <task id="LOCAL-00001" summary="do...">
       <created>1501560749299</created>
@@ -487,11 +474,18 @@
       <option name="project" value="LOCAL" />
       <updated>1502099031507</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="do...">
+      <created>1502180444064</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1502180444064</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180154000" />
+    <option name="totallyTimeSpent" value="180182000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -503,9 +497,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="10" y="2" width="1920" height="1024" extended-state="0" />
+    <frame x="10" y="2" width="1920" height="1024" extended-state="1" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17375132" sideWeight="0.6576577" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17375132" sideWeight="0.6576577" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277027" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26576576" sideWeight="0.506833" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890365" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -980,8 +975,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/student/containers/StudentInfoUpdate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="107" column="30" lean-forward="true" selection-start-line="107" selection-start-column="30" selection-end-line="107" selection-end-column="30" />
+        <state relative-caret-position="423">
+          <caret line="112" column="32" lean-forward="true" selection-start-line="112" selection-start-column="32" selection-end-line="112" selection-end-column="32" />
           <folding>
             <element signature="e#725#773#0" expanded="false" />
             <element signature="e#785#1445#0" expanded="false" />
