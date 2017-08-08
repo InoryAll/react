@@ -3,16 +3,19 @@ import ReactDOM from 'react-dom';
 import {StudentCourseHeaderForm} from './StudentCourseHeader';
 import {Card,Icon,Modal,Table,Popconfirm} from 'antd';
 import {getCookie} from "../../util";
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {getAllCourses , doSelect} from "../../action/actions";
 
-export default class StudentCourseSelect extends React.Component{
+class StudentCourseSelect extends React.Component{
     constructor(props){
         super(props);
-        this.state={
+       /* this.state={
             data:[]
-        };
+        };*/
     }
 
-    fetchData=() => {
+   /* fetchData=() => {
         fetch('http://localhost:8080/studentmanagement/StudentAction',{
             method:'POST',
             mode:'cors',
@@ -40,20 +43,21 @@ export default class StudentCourseSelect extends React.Component{
         }).catch((e) =>{
             console.log(e.message);
         });
-    };
+    };*/
 
     refreshData=(data) => {
-        this.setState({
+        /*this.setState({
             data:data
-        });
+        });*/
     };
 
     componentDidMount(){
-        this.fetchData();
+        /*this.fetchData();*/
+        this.props.getAllCourses();
     }
 
     onSelect = (index) => {
-        const dataSource = [...this.state.data];
+       /* const dataSource = [...this.state.data];
         fetch('http://localhost:8080/studentmanagement/StudentAction',{
             method:'POST',
             mode:'cors',
@@ -88,7 +92,8 @@ export default class StudentCourseSelect extends React.Component{
             }
         }).catch((e) => {
             console.log(e.message);
-        });
+        });*/
+       this.props.doSelect(index,getCookie('username'));
     };
 
     render(){
@@ -134,12 +139,24 @@ export default class StudentCourseSelect extends React.Component{
 
         return (
             <Card title="选课" className="search-info-form-container">
-                <StudentCourseHeaderForm refreshTable={this.refreshData}/>
+                <StudentCourseHeaderForm />
                 <Table
                     columns={columns}
-                    dataSource={this.state.data}
+                    dataSource={this.props.courses}
                 />
             </Card>
         );
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        courses:state.course.courses
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ getAllCourses , doSelect },dispatch);
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(StudentCourseSelect);

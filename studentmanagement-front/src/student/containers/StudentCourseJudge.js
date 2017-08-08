@@ -3,13 +3,17 @@ import ReactDOM from 'react-dom';
 import {StudentCourseHeaderForm} from './StudentCourseHeader';
 import {Card,Icon,Modal,Table,Rate,Row,Col,Input} from 'antd';
 import {getCookie} from "../../util";
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {getStudentCourse,showJudgeModal,setJudgeModal,doJudge} from "../../action/actions";
+import judge from "../../reducers/judge";
 
 const { TextArea }=Input;
 
-export default class StudentCourseJudge extends React.Component{
+class StudentCourseJudge extends React.Component{
     constructor(props){
         super(props);
-        this.state={
+        /*this.state={
             data:[],
             visible:false,
             handleIndex:-1,
@@ -19,23 +23,23 @@ export default class StudentCourseJudge extends React.Component{
             method:0,
             attitude:0,
             other:''
-        };
+        };*/
     }
 
     showModal = (index) => {
-        this.setState({
+      /*  this.setState({
             visible: true,
             handleIndex:index
-        });
+        });*/
+      this.props.showJudgeModal(true,index);
     };
 
     handleOk = (e) => {
-        const dataSource=[...this.state.data];
+        this.props.showJudgeModal(false,this.props.handleIndex);
+        /* const dataSource=[...this.state.data];
         const handleItem=dataSource[this.state.handleIndex];
 
-        this.setState({
-            visible: false,
-        });
+
         fetch('http://localhost:8080/studentmanagement/StudentAction',{
             method:'POST',
             mode:'cors',
@@ -77,16 +81,15 @@ export default class StudentCourseJudge extends React.Component{
             }
         }).catch((e) => {
             console.log(e.message);
-        });
+        });*/
+        this.props.doJudge(getCookie('username'));
     };
 
     handleCancel = (e) => {
-        this.setState({
-            visible: false,
-        });
+        this.props.showJudgeModal(false,this.props.handleIndex);
     };
 
-    fetchData=() => {
+   /* fetchData=() => {
         fetch('http://localhost:8080/studentmanagement/StudentAction',{
             method:'POST',
             mode:'cors',
@@ -114,16 +117,16 @@ export default class StudentCourseJudge extends React.Component{
         }).catch((e) =>{
             console.log(e.message);
         });
-    };
+    };*/
 
     refreshData=(data) => {
-        this.setState({
+        /*this.setState({
             data:data
-        });
+        });*/
     };
 
     componentDidMount(){
-        this.fetchData();
+        this.props.getStudentCourse(getCookie('username'));
     }
 
 
@@ -168,14 +171,14 @@ export default class StudentCourseJudge extends React.Component{
 
         return (
             <Card title="评价课程" className="search-info-form-container">
-                <StudentCourseHeaderForm refreshTable={this.refreshData}/>
+                <StudentCourseHeaderForm />
                 <Table
                     columns={columns}
-                    dataSource={this.state.data}
+                    dataSource={this.props.courses}
                 />
                 <Modal
                     title="课程评价"
-                    visible={this.state.visible}
+                    visible={this.props.visible}
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
                 >
@@ -184,7 +187,7 @@ export default class StudentCourseJudge extends React.Component{
                             <strong className="judge-title">课程号:</strong>
                             <span className="judge-detail">
                                 {
-                                   this.state.data[this.state.handleIndex] ? this.state.data[this.state.handleIndex].courseId:' '
+                                   this.props.handleIndex!==undefined && this.props.courses[this.props.handleIndex] ? this.props.courses[this.props.handleIndex].courseId:' '
                                 }
                             </span>
                         </Col>
@@ -194,7 +197,7 @@ export default class StudentCourseJudge extends React.Component{
                             <strong className="judge-title">课程名:</strong>
                             <span className="judge-detail">
                                 {
-                                    this.state.data[this.state.handleIndex] ? this.state.data[this.state.handleIndex].courseName:' '
+                                    this.props.handleIndex!==undefined && this.props.courses[this.props.handleIndex] ? this.props.courses[this.props.handleIndex].courseName:' '
                                 }
                             </span>
                         </Col>
@@ -204,7 +207,7 @@ export default class StudentCourseJudge extends React.Component{
                             <strong className="judge-title">教师号:</strong>
                             <span className="judge-detail">
                                 {
-                                    this.state.data[this.state.handleIndex] ? this.state.data[this.state.handleIndex].teaId:' '
+                                    this.props.handleIndex!==undefined && this.props.courses[this.props.handleIndex] ? this.props.courses[this.props.handleIndex].teaId:' '
                                 }
                             </span>
                         </Col>
@@ -214,7 +217,7 @@ export default class StudentCourseJudge extends React.Component{
                             <strong className="judge-title">教师名:</strong>
                             <span className="judge-detail">
                                 {
-                                    this.state.data[this.state.handleIndex] ? this.state.data[this.state.handleIndex].teaName:' '
+                                    this.props.handleIndex!==undefined && this.props.courses[this.props.handleIndex] ? this.props.courses[this.props.handleIndex].teaName:' '
                                 }
                             </span>
                         </Col>
@@ -222,31 +225,31 @@ export default class StudentCourseJudge extends React.Component{
                     <Row>
                         <Col span={12} offset={6}>
                             <strong className="judge-label">教师外表:</strong>
-                            <Rate onChange={(value)=>{this.setState({appearance:value})}} value={this.state.appearance} />
+                            <Rate onChange={(value)=>{this.props.setJudgeModal(value,this.props.quality,this.props.atmosphere,this.props.method,this.props.attitude,this.props.other)}} value={this.props.appearance} />
                         </Col>
                     </Row>
                     <Row>
                         <Col span={12} offset={6}>
                             <strong className="judge-label">教学质量:</strong>
-                            <Rate onChange={(value)=>{this.setState({quality:value})}} value={this.state.quality} />
+                            <Rate onChange={(value)=>{this.props.setJudgeModal(this.props.appearance,value,this.props.atmosphere,this.props.method,this.props.attitude,this.props.other)}} value={this.props.quality} />
                         </Col>
                     </Row>
                     <Row>
                         <Col span={12} offset={6}>
                             <strong className="judge-label">课堂氛围:</strong>
-                            <Rate onChange={(value)=>{this.setState({atmosphere:value})}} value={this.state.atmosphere} />
+                            <Rate onChange={(value)=>{this.props.setJudgeModal(this.props.appearance,this.props.quality,value,this.props.method,this.props.attitude,this.props.other)}} value={this.props.atmosphere} />
                         </Col>
                     </Row>
                     <Row>
                         <Col span={12} offset={6}>
                             <strong className="judge-label">教学方法:</strong>
-                            <Rate onChange={(value)=>{this.setState({method:value})}} value={this.state.method} />
+                            <Rate onChange={(value)=>{this.props.setJudgeModal(this.props.appearance,this.props.quality,this.props.atmosphere,value,this.props.attitude,this.props.other)}} value={this.props.method} />
                         </Col>
                     </Row>
                     <Row>
                         <Col span={12} offset={6}>
                             <strong className="judge-label">教学态度:</strong>
-                            <Rate onChange={(value)=>{this.setState({attitude:value})}} value={this.state.attitude} />
+                            <Rate onChange={(value)=>{this.props.setJudgeModal(this.props.appearance,this.props.quality,this.props.atmosphere,this.props.method,value,this.props.other)}} value={this.props.attitude} />
                         </Col>
                     </Row>
                 </Modal>
@@ -254,3 +257,23 @@ export default class StudentCourseJudge extends React.Component{
         );
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        courses:state.course.courses,
+        visible:state.judge.visible,
+        handleIndex:state.judge.handleIndex,
+        appearance:state.judge.appearance,
+        quality:state.judge.quality,
+        atmosphere:state.judge.atmosphere,
+        method:state.judge.method,
+        attitude:state.judge.attitude,
+        other:state.judge.other
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ getStudentCourse , showJudgeModal , setJudgeModal , doJudge },dispatch);
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(StudentCourseJudge);

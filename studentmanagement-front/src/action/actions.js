@@ -271,9 +271,11 @@ export const getStudentCourse=(id)=>{
                     content:'初始化失败,请重试!'
                 });
                 dispatch(searchStudentCourse([]));
+                dispatch(doFilter([]));
             }
             else{
                 dispatch(searchStudentCourse(data.courses));
+                dispatch(doFilter(data.courses));
             }
         }).catch((e) =>{
             console.log(e.message);
@@ -328,6 +330,305 @@ export const getFilterInitial=()=>{
         });
     };
 };
+
+//do_filter
+export const DO_FILTER='DO_FILTER';
+
+export const doFilter=(filterCourses) => {
+    return {
+        type:DO_FILTER,
+        filterCourses
+    };
+};
+
+export const getFilterCourses=(filter)=>{
+    return (dispatch,getState)=>{
+        const {course}=getState();
+        let filterCourses=course.filterCourses;
+        let result = [];
+        console.log(filterCourses);
+        console.log(filter);
+        for (let i = 0; i < filterCourses.length; i++) {
+            console.log(i);
+           if (filter.courseName === undefined && filter.teaName === undefined) {
+               result.push(filterCourses[i]);
+           }
+           if (filter.courseName === undefined && filter.teaName !== undefined) {
+               if (filter.teaName === filterCourses[i].teaName) {
+                   result.push(filterCourses[i]);
+               }
+           }
+           if (filter.courseName !== undefined && filter.teaName === undefined) {
+               if (filter.courseName === filterCourses[i].courseName) {
+                   result.push(filterCourses[i]);
+               }
+           }
+           if (filter.courseName !== undefined && filter.teaName !== undefined) {
+               if (filter.courseName === filterCourses[i].courseName && filter.teaName === filterCourses[i].teaName) {
+                   result.push(filterCourses[i]);
+               }
+           }
+        }
+        dispatch(searchStudentCourse(result));
+    };
+};
+
+//student_course_select
+export const SELECT_STUDENT_COURSE='SELECT_STUDENT_COURSE';
+
+export const selectStudentCourse=(index)=>{
+    return {
+        type:SELECT_STUDENT_COURSE,
+        index
+    };
+};
+
+export const getAllCourses=()=>{
+    return (dispatch,getState)=>{
+        fetch('http://localhost:8080/studentmanagement/StudentAction',{
+            method:'POST',
+            mode:'cors',
+            headers:{
+                'Accept': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body:'action=initialSearchTable'
+        }).then((response) => {
+            if (response.ok){
+                return response.json();
+            }
+        }).then((data) => {
+            if (data.code==='0'){
+                Modal.error({
+                    title:'错误',
+                    content:'初始化失败,请重试!'
+                });
+                dispatch(searchStudentCourse([]));
+                dispatch(doFilter([]));
+            }
+            else{
+                /*this.setState({
+                    data:data.courses
+                });*/
+                dispatch(searchStudentCourse(data.courses));
+                dispatch(doFilter(data.courses));
+            }
+        }).catch((e) =>{
+            console.log(e.message);
+        });
+    };
+};
+
+export const doSelect=(index,id)=>{
+    return (dispatch,getState)=>{
+        const {course}=getState();
+        const courses=course.courses;
+
+        fetch('http://localhost:8080/studentmanagement/StudentAction',{
+           method:'POST',
+           mode:'cors',
+           headers:{
+               'Accept': 'application/json',
+               'Content-Type': 'application/x-www-form-urlencoded'
+           },
+           body:'action=selectCourse'+'&courseId='+courses[index].courseId+'&stuId='+id
+       }).then((response) => {
+           if (response.ok){
+               return response.json();
+           }
+       }).then((data) => {
+           if (data.code==='0'){
+               Modal.error({
+                   title:'失败',
+                   content:data.message
+               });
+           }
+           else{
+               const modal=Modal.success({
+                   title:'成功',
+                   content:data.message
+               });
+               setTimeout(()=>{
+                   modal.destroy();
+               },1000);
+               dispatch(selectStudentCourse(index));
+           }
+       }).catch((e) => {
+           console.log(e.message);
+       });
+    };
+};
+
+//student_course_delete
+export const DELETE_STUDENT_COURSE='DELETE_STUDENT_COURSE';
+
+export const deleteStudentCourse=(index)=>{
+    return {
+        type:DELETE_STUDENT_COURSE,
+        index
+    };
+};
+
+export const doDelete=(index,id)=>{
+    return (dispatch,getState)=>{
+        const {course}=getState();
+        const courses=course.courses;
+        fetch('http://localhost:8080/studentmanagement/StudentAction',{
+            method:'POST',
+            mode:'cors',
+            headers:{
+                'Accept': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body:'action=deleteCourse'+'&stuId='+id+'&courseId='+courses[index].courseId
+        }).then((response) => {
+            if (response.ok){
+                return response.json();
+            }
+        }).then((data) => {
+            if (data.code==='0'){
+                Modal.error({
+                    title:'失败',
+                    message:data.message
+                });
+            }
+            else{
+                const modal=Modal.success({
+                    title:'成功',
+                    message:data.message
+                });
+                setTimeout(()=>{
+                    modal.destroy();
+                },1000);
+                dispatch(deleteStudentCourse(index));
+            }
+        }).catch((e) => {
+            console.log(e.message);
+        });
+    };
+};
+
+//student_course_judge
+export const JUDGE_STUDENT_COURSE='JUDGE_STUDENT_COURSE';
+
+export const judgeStudentCourse=(index)=>{
+    return {
+        type:JUDGE_STUDENT_COURSE,
+        index
+    };
+};
+
+export const getJudgedCourse=(id)=>{
+    return (dispatch,getState)=>{
+        fetch('http://localhost:8080/studentmanagement/StudentAction',{
+            method:'POST',
+            mode:'cors',
+            headers:{
+                'Accept': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body:'action=judgedCourse'+'&stuId='+id
+        }).then((response) => {
+            if (response.ok){
+                return response.json();
+            }
+        }).then((data) => {
+            if (data.code==='0'){
+                Modal.error({
+                    title:'错误',
+                    content:'初始化失败,请重试!'
+                });
+                dispatch(searchStudentCourse([]));
+                dispatch(doFilter([]));
+            }
+            else{
+               /* this.setState({
+                    data:data.courses
+                });*/
+                dispatch(searchStudentCourse(data.courses));
+                dispatch(doFilter(data.courses));
+            }
+        }).catch((e) =>{
+            console.log(e.message);
+        });
+    };
+};
+
+export const SHOW_JUDGE_MODAL='SHOW_JUDGE_MODAL';
+
+export const showJudgeModal=(visible,handleIndex)=>{
+    return {
+        type:SHOW_JUDGE_MODAL,
+        visible,
+        handleIndex
+    };
+};
+
+export const SET_JUDGE_MODAL='SET_JUDGE_MODAL';
+
+export const setJudgeModal=(appearance,quality,atmosphere,method,attitude,other)=>{
+    return {
+        type:SET_JUDGE_MODAL,
+        appearance,
+        quality,
+        atmosphere,
+        method,
+        attitude,
+        other
+    };
+};
+
+export const doJudge=(id)=>{
+    return (dispatch,getState)=>{
+        const {course,judge}=getState();
+        const courses=course.courses;
+        const handleIndex=judge.handleIndex;
+        const handleItem=courses[handleIndex];
+
+        fetch('http://localhost:8080/studentmanagement/StudentAction',{
+            method:'POST',
+            mode:'cors',
+            headers:{
+                'Accept': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body:'action=judgeCourse'+'&stuId='+id
+            +'&courseId='+handleItem.courseId
+            +'&teaId='+handleItem.teaId
+            +'&appearance='+judge.appearance
+            +'&quality='+judge.quality
+            +'&atmosphere='+judge.atmosphere
+            +'&method='+judge.method
+            +'&attitude='+judge.attitude
+        }).then((response) => {
+            if (response.ok){
+                return response.json();
+            }
+        }).then((data) => {
+            if (data.code==='0'){
+                Modal.error({
+                    title:'失败',
+                    content:data.message
+                });
+            }
+            else{
+                const modal=Modal.success({
+                    title:'成功',
+                    content:data.message
+                });
+                setTimeout(()=>{
+                    modal.destroy();
+                },1000);
+                dispatch(judgeStudentCourse(handleIndex));
+            }
+        })/*.catch((e) => {
+            console.log(e.message);
+        })*/;
+    };
+};
+
+
+
 
 
 

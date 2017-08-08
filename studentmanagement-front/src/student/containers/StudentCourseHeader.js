@@ -7,7 +7,7 @@ import 'whatwg-fetch';
 import 'whatwg-fetch/fetch';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {getFilterInitial} from "../../action/actions";
+import {getFilterInitial,getFilterCourses} from "../../action/actions";
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -85,13 +85,17 @@ class StudentCourseHeader extends React.Component{
                 }
             }
             this.props.refreshTable(result);*/
+           this.props.getFilterCourses({
+               teaName:values.teaName,
+               courseName:values.courseName
+           });
         });
     };
 
 
     render(){
         const { getFieldDecorator } = this.props.form;
-        console.log(this.props.courses);
+        const {courses,teachers}=this.props.courseFilter;
         return (
             <div>
                 <Form layout="inline" onSubmit={this.handleSubmit} className="search-conditions">
@@ -106,11 +110,13 @@ class StudentCourseHeader extends React.Component{
                                 filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
                                 className="courseNameSelect"
                             >
+
                                 {
-                                    this.props.courses.map((value) => {
-                                        return <Option key={value} value={value}>{value}</Option>;
-                                    })
+                                            courses && courses.map((value) => {
+                                            return <Option key={value} value={value}>{value}</Option>;
+                                        })
                                 }
+
                             </Select>
                         )}
                     </FormItem>
@@ -126,7 +132,7 @@ class StudentCourseHeader extends React.Component{
                                 className="teacherNameSelect"
                             >
                                 {
-                                    this.props.teachers.map((value) => {
+                                    teachers && teachers.map((value) => {
                                         return <Option key={value} value={value}>{value}</Option>;
                                     })
                                 }
@@ -144,13 +150,12 @@ class StudentCourseHeader extends React.Component{
 
 function mapStateToProps(state) {
     return {
-        courses:state.courseFilter.courses,
-        teachers:state.courseFilter.teachers
+        courseFilter:state.courseFilter
     };
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ getFilterInitial },dispatch);
+    return bindActionCreators({ getFilterInitial , getFilterCourses },dispatch);
 }
 
 export const StudentCourseHeaderF=Form.create()(StudentCourseHeader);

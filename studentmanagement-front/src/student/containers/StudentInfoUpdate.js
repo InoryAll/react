@@ -308,7 +308,6 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators({getUpdatedStudentInfo}, dispatch);
 }
 
-
 export const StudentInfoUpdateF = Form.create()(StudentInfoUpdate);
 
 export const StudentInfoUpdateForm=connect(mapStateToProps,mapDispatchToProps)(StudentInfoUpdateF);

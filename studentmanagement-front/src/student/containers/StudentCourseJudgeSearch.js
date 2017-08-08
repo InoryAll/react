@@ -3,17 +3,20 @@ import ReactDOM from 'react-dom';
 import {StudentCourseHeaderForm} from './StudentCourseHeader';
 import {Card,Icon,Modal,Table} from 'antd';
 import {getCookie} from "../../util";
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {getJudgedCourse} from "../../action/actions";
 
-export default class StudentCourseJudgeSearch extends React.Component{
+class StudentCourseJudgeSearch extends React.Component{
     constructor(props){
         super(props);
-        this.state={
+        /*this.state={
             data:[]
-        };
+        };*/
     }
 
     fetchData=() => {
-        fetch('http://localhost:8080/studentmanagement/StudentAction',{
+       /* fetch('http://localhost:8080/studentmanagement/StudentAction',{
             method:'POST',
             mode:'cors',
             headers:{
@@ -39,17 +42,18 @@ export default class StudentCourseJudgeSearch extends React.Component{
             }
         }).catch((e) =>{
             console.log(e.message);
-        });
+        });*/
     };
 
     refreshData=(data) => {
-        this.setState({
+       /* this.setState({
             data:data
-        });
+        });*/
     };
 
     componentDidMount(){
-        this.fetchData();
+       /* this.fetchData();*/
+       this.props.getJudgedCourse(getCookie('username'));
     }
 
     render(){
@@ -88,9 +92,22 @@ export default class StudentCourseJudgeSearch extends React.Component{
                 <StudentCourseHeaderForm refreshTable={this.refreshData}/>
                 <Table
                     columns={columns}
-                    dataSource={this.state.data}
+                    dataSource={this.props.courses}
                 />
             </Card>
         );
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        courses:state.course.courses
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ getJudgedCourse },dispatch);
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(StudentCourseJudgeSearch);
+

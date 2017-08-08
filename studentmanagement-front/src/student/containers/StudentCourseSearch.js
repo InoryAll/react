@@ -87,7 +87,6 @@ class StudentCourseSearch extends React.Component{
             dataIndex: 'courseCredits',
             key: 'courseCredits',
         }];
-        console.log(this.props.courses);
         return (
             <Card title="选课查询" className="search-info-form-container">
                 <StudentCourseHeaderForm />
@@ -102,7 +101,7 @@ class StudentCourseSearch extends React.Component{
 
 function mapStateToProps(state){
     return {
-        courses:state.course
+        courses:state.course.courses
     };
 }
 

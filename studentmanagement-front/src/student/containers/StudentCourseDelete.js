@@ -3,16 +3,19 @@ import ReactDOM from 'react-dom';
 import {StudentCourseHeaderForm} from './StudentCourseHeader';
 import {Card,Icon,Modal,Table,Popconfirm} from 'antd';
 import {getCookie} from "../../util";
+import {getStudentCourse,doDelete} from "../../action/actions";
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 
-export default class StudentCourseDelete extends React.Component{
+class StudentCourseDelete extends React.Component{
     constructor(props){
         super(props);
-        this.state={
+        /*this.state={
             data:[]
-        };
+        };*/
     }
 
-    fetchData=() => {
+    /*fetchData=() => {
         fetch('http://localhost:8080/studentmanagement/StudentAction',{
             method:'POST',
             mode:'cors',
@@ -40,20 +43,20 @@ export default class StudentCourseDelete extends React.Component{
         }).catch((e) =>{
             console.log(e.message);
         });
-    };
+    };*/
 
-    refreshData=(data) => {
+    /*refreshData=(data) => {
         this.setState({
             data:data
         });
-    };
+    };*/
 
     componentDidMount(){
-        this.fetchData();
+        this.props.getStudentCourse(getCookie('username'));
     }
 
     onDelete=(index)=>{
-        const dataSource=[...this.state.data];
+       /* const dataSource=[...this.state.data];
 
         fetch('http://localhost:8080/studentmanagement/StudentAction',{
             method:'POST',
@@ -89,7 +92,8 @@ export default class StudentCourseDelete extends React.Component{
             }
         }).catch((e) => {
             console.log(e.message);
-        });
+        });*/
+        this.props.doDelete(index,getCookie('username'));
     };
 
     render(){
@@ -135,12 +139,25 @@ export default class StudentCourseDelete extends React.Component{
 
         return (
             <Card title="选课查询" className="search-info-form-container">
-                <StudentCourseHeaderForm refreshTable={this.refreshData}/>
+                <StudentCourseHeaderForm />
                 <Table
                     columns={columns}
-                    dataSource={this.state.data}
+                    dataSource={this.props.courses}
                 />
             </Card>
         );
     }
 }
+
+
+function mapStateToProps(state) {
+    return {
+        courses:state.course.courses
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ getStudentCourse , doDelete },dispatch);
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(StudentCourseDelete);
