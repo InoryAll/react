@@ -6,7 +6,7 @@ import {Router,Route,browserHistory,IndexRoute,Redirect} from 'react-router';
 import Main from "./components/Main";
 import {LoginForm} from "./form/containers/Login";
 import Init from "./components/Init";
-import Form from './form/components/Form'
+import Form from './form/components/Form';
 import {RegisterForm} from "./form/containers/Register";
 import Student from "./student/components/Student";
 import Teacher from "./teacher/Teacher";
