@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="814d5fb3-8ccb-4c5b-b0b8-9b34c7fa0412" name="Default" comment="" />
+    <list default="true" id="814d5fb3-8ccb-4c5b-b0b8-9b34c7fa0412" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -77,10 +79,11 @@
       <file leaf-file-name="routers.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/routers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="5" column="37" lean-forward="true" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+            <state relative-caret-position="-34">
+              <caret line="23" column="64" lean-forward="true" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="64" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
+                <element signature="e#14#40#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -202,7 +205,6 @@
         <option value="$PROJECT_DIR$/src/student/StudentCourseSearch.js" />
         <option value="$PROJECT_DIR$/src/student/StudentCourseHeader.js" />
         <option value="$PROJECT_DIR$/src/teacher/TeacherCourseSearch.js" />
-        <option value="$PROJECT_DIR$/src/routers.js" />
         <option value="$PROJECT_DIR$/src/teacher/Teacher.js" />
         <option value="$PROJECT_DIR$/src/teacher/TeacherCourseHeader.js" />
         <option value="$PROJECT_DIR$/src/Main.js" />
@@ -230,6 +232,7 @@
         <option value="$PROJECT_DIR$/src/student/containers/StudentCourseJudge.js" />
         <option value="$PROJECT_DIR$/src/action/actions.js" />
         <option value="$PROJECT_DIR$/src/student/containers/StudentInfoUpdate.js" />
+        <option value="$PROJECT_DIR$/src/routers.js" />
       </list>
     </option>
   </component>
@@ -361,7 +364,7 @@
       <workItem from="1501720008950" duration="24735000" />
       <workItem from="1501807010191" duration="22203000" />
       <workItem from="1502065930871" duration="27800000" />
-      <workItem from="1502152683945" duration="26494000" />
+      <workItem from="1502152683945" duration="27569000" />
     </task>
     <task id="LOCAL-00001" summary="do...">
       <created>1501560749299</created>
@@ -412,11 +415,18 @@
       <option name="project" value="LOCAL" />
       <updated>1502180444064</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="do...">
+      <created>1502184788260</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1502184788260</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="182191000" />
+    <option name="totallyTimeSpent" value="183266000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -911,10 +921,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/routers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="5" column="37" lean-forward="true" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+        <state relative-caret-position="-34">
+          <caret line="23" column="64" lean-forward="true" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="64" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
+            <element signature="e#14#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
