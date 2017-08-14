@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="814d5fb3-8ccb-4c5b-b0b8-9b34c7fa0412" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="814d5fb3-8ccb-4c5b-b0b8-9b34c7fa0412" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -240,8 +238,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-82" />
-    <option name="y" value="22" />
+    <option name="x" value="73" />
+    <option name="y" value="15" />
     <option name="width" value="1940" />
     <option name="height" value="1007" />
   </component>
