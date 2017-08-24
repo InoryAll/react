@@ -17,14 +17,13 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="22" column="6" lean-forward="true" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+            <state relative-caret-position="360">
+              <caret line="83" column="35" lean-forward="true" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#247#615#0" expanded="false" />
                 <element signature="e#634#1069#0" expanded="false" />
                 <element signature="e#1098#1307#0" expanded="false" />
-                <element signature="n#!!block;n#render#0;n#App#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -87,7 +86,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="75" />
     <option name="y" value="22" />
     <option name="width" value="1614" />
@@ -175,15 +174,15 @@
       <option name="presentableId" value="Default" />
       <updated>1503471167555</updated>
       <workItem from="1503471168687" duration="7262000" />
-      <workItem from="1503536074943" duration="4323000" />
+      <workItem from="1503536074943" duration="4953000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11585000" />
+    <option name="totallyTimeSpent" value="12215000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15753424" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -227,7 +226,6 @@
             <element signature="e#247#615#0" expanded="false" />
             <element signature="e#634#1069#0" expanded="false" />
             <element signature="e#1098#1307#0" expanded="false" />
-            <element signature="n#!!block;n#render#0;n#App#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -270,14 +268,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="22" column="6" lean-forward="true" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        <state relative-caret-position="360">
+          <caret line="83" column="35" lean-forward="true" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#247#615#0" expanded="false" />
             <element signature="e#634#1069#0" expanded="false" />
             <element signature="e#1098#1307#0" expanded="false" />
-            <element signature="n#!!block;n#render#0;n#App#0" expanded="false" />
           </folding>
         </state>
       </provider>

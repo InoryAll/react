@@ -82,7 +82,7 @@ class App extends React.Component {
                                         message: "请输入联系人",
                                     }],
                                 })(
-                                    <Input placeholder="联系人" style={{ width: '60%' }} />
+                                    <Input placeholder="联系人" style={{ width: '60%' , marginRight:8}} />
                                 )}
                                 {index === 0 && keys.length <= 5 ? (
                                     <a onClick={this.add}>
