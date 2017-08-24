@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Icon, Button, Row } from 'antd';
+import { Form, Input, Icon, Button, Row, Col, message } from 'antd';
 import 'antd/dist/antd.css';
 import './style.css';
 
@@ -33,6 +33,10 @@ class App extends React.Component {
         form.setFieldsValue({
             keys: nextKeys,
         });
+
+        if (keys.length>=5){
+            message.error('最多只能添加5个联系人');
+        }
     };
 
     handleSubmit = (e) => {
@@ -46,7 +50,7 @@ class App extends React.Component {
 
     render() {
         const { getFieldDecorator, getFieldValue } = this.props.form;
-        /*const formItemLayout = {
+        const formItemLayout = {
             labelCol: {
                 xs: { span: 24 },
                 sm: { span: 4 },
@@ -56,160 +60,152 @@ class App extends React.Component {
                 sm: { span: 20 },
             },
         };
-        const formItemLayoutWithOutLabel = {
-            wrapperCol: {
-                xs: { span: 24, offset: 0 },
-                sm: { span: 20, offset: 4 },
-            },
-        };*/
+
         getFieldDecorator('keys', { initialValue: [0] });
         const keys = getFieldValue('keys');
         const formItems = keys.map((k, index) => {
             return (
                 <Row>
-                    <FormItem
-
-                        label={index === 0 ? '联系人' : ''}
-                        required={false}
-                        key={'name'+k}
-                    >
-                        {getFieldDecorator(`names-${k}`, {
-                            validateTrigger: ['onChange', 'onBlur'],
-                            rules: [{
-                                required: true,
-                                whitespace: true,
-                                message: "Please input passenger's name or delete this field.",
-                            }],
-                        })(
-                            <Input placeholder="passenger name" style={{ width: '100%', marginRight: 8 }} />
-                        )}
-                        {keys.length >= 1 ? (
-                            <a onClick={this.add}>
-                                添加联系人
-                            </a>
-                        ) : null}
-                    </FormItem>
-                    <FormItem
-
-                        label={index === 0 ? '联系电话' : ''}
-                        required={false}
-                        key={'phone'+k}
-                    >
-                    {getFieldDecorator(`phones-${k}`, {
-                        validateTrigger: ['onChange', 'onBlur'],
-                        rules: [{
-                            required: true,
-                            whitespace: true,
-                            message: "Please input passenger's name or delete this field.",
-                        }],
-                    })(
-                        <Input placeholder="passenger name" style={{ width: '100%', marginRight: 8 }} />
-                    )}
-                    </FormItem>
+                    <Row type="flex" justify="center">
+                        <Col span="6">
+                            <FormItem
+                                {...formItemLayout}
+                                label={'联系人'}
+                                required={false}
+                                key={'name'+k}
+                            >
+                                {getFieldDecorator(`names-${k}`, {
+                                    validateTrigger: ['onChange', 'onBlur'],
+                                    rules: [{
+                                        required: true,
+                                        whitespace: true,
+                                        message: "请输入联系人",
+                                    }],
+                                })(
+                                    <Input placeholder="联系人" style={{ width: '60%' }} />
+                                )}
+                                {index === 0 && keys.length <= 5 ? (
+                                    <a onClick={this.add}>
+                                        添加联系人
+                                    </a>
+                                ) : <a onClick={()=>this.remove(k)}>
+                                    删除联系人
+                                </a>}
+                            </FormItem>
+                        </Col>
+                        <Col span="6">
+                            <FormItem
+                                {...formItemLayout}
+                                label={ '联系电话' }
+                                required={false}
+                                key={'phone'+k}
+                            >
+                                {getFieldDecorator(`phones-${k}`, {
+                                    validateTrigger: ['onChange', 'onBlur'],
+                                    rules: [{
+                                        required: true,
+                                        whitespace: true,
+                                        message: "请输入联系电话",
+                                    }],
+                                })(
+                                    <Input placeholder="联系电话" style={{ width: '60%' }} />
+                                )}
+                            </FormItem>
+                        </Col>
+                    </Row>
+                    <Row type="flex" justify="center">
+                        <Col span="6">
+                            <FormItem
+                                {...formItemLayout}
+                                label={'微信'}
+                                required={false}
+                                key={'weChat'+k}
+                            >
+                                {getFieldDecorator(`weChats-${k}`, {
+                                    validateTrigger: ['onChange', 'onBlur'],
+                                    rules: [{
+                                        required: true,
+                                        whitespace: true,
+                                        message: "请输入微信号",
+                                    }],
+                                })(
+                                    <Input placeholder="微信" style={{ width: '60%' }} />
+                                )}
+                            </FormItem>
+                        </Col>
+                        <Col span="6">
+                            <FormItem
+                                {...formItemLayout}
+                                label={ 'QQ' }
+                                required={false}
+                                key={'qq'+k}
+                            >
+                                {getFieldDecorator(`qqs-${k}`, {
+                                    validateTrigger: ['onChange', 'onBlur'],
+                                    rules: [{
+                                        required: true,
+                                        whitespace: true,
+                                        message: "请输入QQ",
+                                    }],
+                                })(
+                                    <Input placeholder="QQ" style={{ width: '60%' }} />
+                                )}
+                            </FormItem>
+                        </Col>
+                    </Row>
+                    <Row type="flex" justify="center">
+                        <Col span="6">
+                            <FormItem
+                                {...formItemLayout}
+                                label={'邮箱'}
+                                required={false}
+                                key={'email'+k}
+                            >
+                                {getFieldDecorator(`emails-${k}`, {
+                                    validateTrigger: ['onChange', 'onBlur'],
+                                    rules: [{
+                                        required: true,
+                                        whitespace: true,
+                                        message: "请输入邮箱",
+                                    }],
+                                })(
+                                    <Input placeholder="邮箱" style={{ width: '60%' }} />
+                                )}
+                            </FormItem>
+                        </Col>
+                        <Col span="6">
+                            <FormItem
+                                {...formItemLayout}
+                                label={ '其他' }
+                                required={false}
+                                key={'other'+k}
+                            >
+                                {getFieldDecorator(`others-${k}`, {
+                                    validateTrigger: ['onChange', 'onBlur'],
+                                    rules: [{
+                                        required: true,
+                                        whitespace: true,
+                                        message: "请输入其他",
+                                    }],
+                                })(
+                                    <Input placeholder="其他" style={{ width: '60%' }} />
+                                )}
+                            </FormItem>
+                        </Col>
+                    </Row>
                 </Row>
-
-                   /* <FormItem
-                        {...(index === 0 ? formItemLayout : formItemLayoutWithOutLabel)}
-                        label={index === 0 ? 'Passengers' : ''}
-                        required={false}
-                        key={k}
-                    >
-                        {getFieldDecorator(`names-${k}`, {
-                            validateTrigger: ['onChange', 'onBlur'],
-                            rules: [{
-                                required: true,
-                                whitespace: true,
-                                message: "Please input passenger's name or delete this field.",
-                            }],
-                        })(
-                            <Input placeholder="passenger name" style={{ width: '60%', marginRight: 8 }} />
-                        )}
-                        {keys.length > 1 ? (
-                            <Icon
-                                className="dynamic-delete-button"
-                                type="minus-circle-o"
-                                disabled={keys.length === 1}
-                                onClick={() => this.remove(k)}
-                            />
-                        ) : null}
-
-                        {getFieldDecorator(`names-${k}`, {
-                            validateTrigger: ['onChange', 'onBlur'],
-                            rules: [{
-                                required: true,
-                                whitespace: true,
-                                message: "Please input passenger's name or delete this field.",
-                            }],
-                        })(
-                            <Input placeholder="passenger name" style={{ width: '30%', marginRight: 8 }} />
-                        )}
-                        {keys.length > 1 ? (
-                            <Icon
-                                className="dynamic-delete-button"
-                                type="minus-circle-o"
-                                disabled={keys.length === 1}
-                                onClick={() => this.remove(k)}
-                            />
-                        ) : null}
-                    </FormItem>
-                    <FormItem
-                        {...(index === 0 ? formItemLayout : formItemLayoutWithOutLabel)}
-                        label={index === 0 ? 'Passengers' : ''}
-                        required={false}
-                        key={k}
-                    >
-                        {getFieldDecorator(`names-${k}`, {
-                            validateTrigger: ['onChange', 'onBlur'],
-                            rules: [{
-                                required: true,
-                                whitespace: true,
-                                message: "Please input passenger's name or delete this field.",
-                            }],
-                        })(
-                            <Input placeholder="passenger name" style={{ width: '60%', marginRight: 8 }} />
-                        )}
-                        {keys.length > 1 ? (
-                            <Icon
-                                className="dynamic-delete-button"
-                                type="minus-circle-o"
-                                disabled={keys.length === 1}
-                                onClick={() => this.remove(k)}
-                            />
-                        ) : null}
-
-                        {getFieldDecorator(`names-${k}`, {
-                            validateTrigger: ['onChange', 'onBlur'],
-                            rules: [{
-                                required: true,
-                                whitespace: true,
-                                message: "Please input passenger's name or delete this field.",
-                            }],
-                        })(
-                            <Input placeholder="passenger name" style={{ width: '30%', marginRight: 8 }} />
-                        )}
-                        {keys.length > 1 ? (
-                            <Icon
-                                className="dynamic-delete-button"
-                                type="minus-circle-o"
-                                disabled={keys.length === 1}
-                                onClick={() => this.remove(k)}
-                            />
-                        ) : null}
-                    </FormItem>*/
-
             );
         });
         return (
-            <Form onSubmit={this.handleSubmit} layout="inline">
+            <Form onSubmit={this.handleSubmit}>
                 {formItems}
-                <FormItem>
-                    <Button type="dashed" onClick={this.add} style={{ width: '60%' }}>
-                        <Icon type="plus" /> Add field
-                    </Button>
-                </FormItem>
-                <FormItem>
-                    <Button type="primary" htmlType="submit">Submit</Button>
-                </FormItem>
+                <Row>
+                    <Col span="8" offset="16">
+                        <FormItem>
+                            <Button type="primary" htmlType="submit">Submit</Button>
+                        </FormItem>
+                    </Col>
+                </Row>
             </Form>
         );
     }
