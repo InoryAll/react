@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="814d5fb3-8ccb-4c5b-b0b8-9b34c7fa0412" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../list-table/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../add-form/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../add-form/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../list-table/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../list-table/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../list-table/src/App.js" afterPath="$PROJECT_DIR$/../list-table/src/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../list-table/src/listTable/ListTable.jsx" afterPath="$PROJECT_DIR$/../list-table/src/listTable/ListTable.jsx" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -218,7 +215,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="75" />
     <option name="y" value="22" />
     <option name="width" value="1614" />
@@ -467,8 +464,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="75" y="22" width="1614" height="973" extended-state="1" />
-    <editor active="true" />
+    <frame x="75" y="22" width="1614" height="973" extended-state="0" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17195432" sideWeight="0.6576577" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277027" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
