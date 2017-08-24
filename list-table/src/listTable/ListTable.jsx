@@ -202,10 +202,22 @@ export default class ListTable extends React.Component {
     };
 
   buildSearchContent = () => {
-    const { data, columns, tabs ,tabCount, rowClassName} = this.props;
+    const { data, columns, tabs ,tabCount, rowClassName, hasRowSelection} = this.props;
     const pagination = this.getPagination();
     if (data.loading === undefined) {
       return;
+    }
+    let rowSelection=null;
+    if (hasRowSelection && hasRowSelection===true){
+        rowSelection = {
+            onChange: (selectedRowKeys, selectedRows) => {
+                console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
+            }
+         };
+    }
+    else
+    {
+        rowSelection=null;
     }
     //tabs为空，则无tags展示
     if (tabs == null || tabs.length == 0 || tabCount == null) {
@@ -217,6 +229,7 @@ export default class ListTable extends React.Component {
           pagination={pagination}
           onChange={this.onChange}
           rowClassName={rowClassName}
+          rowSelection={rowSelection}
         />
       );
     }
@@ -243,6 +256,7 @@ export default class ListTable extends React.Component {
             pagination={pagination}
             onChange={this.onChange}
             rowClassName={rowClassName}
+            rowSelection={rowSelection}
           /></TabPane>);
         continue;
       }
@@ -263,6 +277,7 @@ export default class ListTable extends React.Component {
             pagination={pagination}
             onChange={this.onChange}
             rowClassName={rowClassName}
+            rowSelection={rowSelection}
           />
         </TabPane>
       );

@@ -310,6 +310,7 @@ export default class App extends React.Component {
                 tabPanelCount={tabPanelCount}
                 tabPanelContent={tabPanelContent}
                 toolTerms={toolTerms}
+                hasRowSelection={true}
             />);
     }
 }
