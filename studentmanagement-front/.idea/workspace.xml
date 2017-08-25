@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="814d5fb3-8ccb-4c5b-b0b8-9b34c7fa0412" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../add-form/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../add-form/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../list-table/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../list-table/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,11 +19,9 @@
       <file leaf-file-name="Login.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/form/containers/Login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
+            <state relative-caret-position="4920">
               <caret line="164" column="34" lean-forward="false" selection-start-line="164" selection-start-column="34" selection-end-line="164" selection-end-column="34" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -32,7 +29,7 @@
       <file leaf-file-name="Register.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/form/containers/Register.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="549">
+            <state relative-caret-position="1650">
               <caret line="64" column="34" lean-forward="false" selection-start-line="64" selection-start-column="34" selection-end-line="64" selection-end-column="34" />
               <folding />
             </state>
@@ -52,8 +49,8 @@
       <file leaf-file-name="StudentCourseDelete.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/student/containers/StudentCourseDelete.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4350">
-              <caret line="152" column="33" lean-forward="false" selection-start-line="152" selection-start-column="33" selection-end-line="152" selection-end-column="33" />
+            <state relative-caret-position="346">
+              <caret line="146" column="19" lean-forward="false" selection-start-line="146" selection-start-column="19" selection-end-line="146" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -215,7 +212,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="75" />
     <option name="y" value="22" />
     <option name="width" value="1614" />
@@ -255,8 +252,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -333,7 +330,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="E:/dlucy" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -391,6 +388,7 @@
       <workItem from="1503392846847" duration="599000" />
       <workItem from="1503449176331" duration="406000" />
       <workItem from="1503546028081" duration="766000" />
+      <workItem from="1503622573686" duration="616000" />
     </task>
     <task id="LOCAL-00001" summary="do...">
       <created>1501560749299</created>
@@ -452,7 +450,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="199729000" />
+    <option name="totallyTimeSpent" value="200345000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -464,7 +462,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="75" y="22" width="1614" height="973" extended-state="0" />
+    <frame x="75" y="22" width="1614" height="973" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17195432" sideWeight="0.6576577" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277027" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -762,30 +761,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="12" column="6" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-          <folding>
-            <element signature="e#3224#3296#0" expanded="false" />
-            <element signature="e#3331#4668#0" expanded="false" />
-            <element signature="e#4779#4850#0" expanded="false" />
-            <element signature="e#4887#5872#0" expanded="false" />
-            <element signature="e#5991#6064#0" expanded="false" />
-            <element signature="e#6113#7498#0" expanded="false" />
-            <element signature="e#7630#7705#0" expanded="false" />
-            <element signature="e#7744#8739#0" expanded="false" />
-            <element signature="e#8839#8905#0" expanded="false" />
-            <element signature="e#8942#10053#0" expanded="false" />
-            <element signature="e#10146#10215#0" expanded="false" />
-            <element signature="e#10258#11501#0" expanded="false" />
-            <element signature="e#11631#11704#0" expanded="false" />
-            <element signature="e#11738#12818#0" expanded="false" />
-            <element signature="e#12855#14013#0" expanded="false" />
-            <element signature="e#14143#14216#0" expanded="false" />
-            <element signature="e#14253#15441#0" expanded="false" />
-            <element signature="e#15567#15639#0" expanded="false" />
-            <element signature="e#15677#16764#0" expanded="false" />
-            <element signature="e#16869#16960#0" expanded="false" />
-            <element signature="e#17094#17252#0" expanded="false" />
-            <element signature="e#17282#18833#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -793,7 +768,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="6" column="16" lean-forward="false" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -861,17 +835,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/form/containers/Login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
+        <state relative-caret-position="4920">
           <caret line="164" column="34" lean-forward="false" selection-start-line="164" selection-start-column="34" selection-end-line="164" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/form/containers/Register.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
+        <state relative-caret-position="1650">
           <caret line="64" column="34" lean-forward="false" selection-start-line="64" selection-start-column="34" selection-end-line="64" selection-end-column="34" />
           <folding />
         </state>
@@ -887,8 +859,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/student/containers/StudentCourseDelete.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4350">
-          <caret line="152" column="33" lean-forward="false" selection-start-line="152" selection-start-column="33" selection-end-line="152" selection-end-column="33" />
+        <state relative-caret-position="346">
+          <caret line="146" column="19" lean-forward="false" selection-start-line="146" selection-start-column="19" selection-end-line="146" selection-end-column="19" />
           <folding />
         </state>
       </provider>
